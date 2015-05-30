@@ -40,11 +40,11 @@ aboutAnimation
 
 
   .fromTo('.browser', 1, {autoAlpha: 0, scale: .5}, {autoAlpha: 1, scale: 1, y: '-50%', borderRadius: '50%', ease: Elastic.easeOut.config(1, 0.75)}, '-=1')
-  .to('.browser', 1, {width: '100%', height: '210px', borderRadius: '5px', delay: .7, ease: Elastic.easeOut.config(1, 0.75)}, '-=.5')
-  .fromTo('.text-screen', .3, {autoAlpha: 0, y: '-10px'}, {autoAlpha: 1, y: '0'})
+  .to('.browser', 1, {width: '100%', height: '210px', borderRadius: '5px', delay: 1, ease: Elastic.easeOut.config(1, 0.75)}, '-=.5')
+  .fromTo('.text-screen', .3, {autoAlpha: 0, y: '-10px'}, {autoAlpha: 1, y: '0'}, '-=.5')
   .to('.icon', .3, {autoAlpha: 0, display: 'none', ease: Power3.easeIn})
   .fromTo('.header', .3, {autoAlpha: 0, y: '-10px'}, {autoAlpha: 1, y: '0'})
-  .to('.header, .body', .3, {autoAlpha: 0, y: '10px', display: 'none', delay: .7})
+  .to('.header, .body', .3, {autoAlpha: 0, y: '10px', display: 'none', delay: 1.2})
   .to('.browser', 1, {width: '200px', ease: Elastic.easeOut.config(1, 0.75)})
   .fromTo('.tablet', .3, {autoAlpha: 0, y: '-10px'}, {autoAlpha: 1, y: '0'})
   .to('.tablet', .3, {autoAlpha: 0, y: '10px', display: 'none' , delay: .7})
@@ -61,7 +61,7 @@ aboutAnimation
   .to('.text-web', .3, {autoAlpha: 0, y: '10px', display: 'none'})
   .to('.browser', 1, {width: '200px', height: '60px', borderRadius: '5px', ease: Elastic.easeOut.config(1, 0.75)}, '-=.5')
   .fromTo('.more', .3, {alpha: 0, y: '-80%', display: ''}, {autoAlpha: 1, y: '-50%'})
-  .to('.more', .3, {alpha: 0, y: '10px', display: 'none', delay: .7})
+  .to('.more', .3, {alpha: 0, y: '10px', display: 'none', delay: 1})
 
   .to('.browser', 0, {maxWidth: 'initial', maxHeight: 'initial'})
   .to('.browser', 1, {width: '100%', height: '100%', borderRadius: '0%', ease: Power4.easeOut})
