@@ -1,0 +1,186 @@
+{
+  "work": [
+    {
+      "timeline": {
+        "description": "Welcome to my site",
+        "type": "none"
+      },
+      "modal": {
+        "image": "3-dark.jpg",
+        "title": "Andrew Rattana",
+        "description": "Welcome to my site! I'm a web developer that specializes in a broad range of areas: from web design & development, to motion graphics & illustration, to traditional pen and paper art. Last but not least I love programming and solving  both design and coding problems. Please enjoy my site and if you have any questions don't hesitate to send me a <a href='mailto:andrew.rattana@gmail.com'>message</a>.",
+        "link": "",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "Offering only the best tech news and reviews!",
+        "type": "web"
+      },
+      "modal": {
+        "image": "lighsing.png",
+        "title": "Lighsing Tech News",
+        "description": "Front end design and development of a self-made project of a tech news center.",
+        "link": "http://lighsing.andrewrattana.com",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "After Effects animations with front end design!",
+        "type": "web"
+      },
+      "modal": {
+        "image": "videojs.png",
+        "title": "AE Phone Animations",
+        "description": "Creating modern vector phone animations with After Effects and designing a minimal site platform for videos.",
+        "link": "http://videojs.andrewrattana.com",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "A tournament management and hosting application microsite.",
+        "type": "web"
+      },
+      "modal": {
+        "image": "bracketsc2.png",
+        "title": "BracketSC2 Microsite",
+        "description": "BracketSC2 is a Starcraft 2 tournament management and hosting application that enables you to easily host tournaments without worrying about the techinical side of things.",
+        "link": "http://bracketsc2.andrewrattana.com",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "HTML5 Minimal todo list.",
+        "type": "web"
+      },
+      "modal": {
+        "image": "dragdrop.png",
+        "title": "Todo List Application",
+        "description": "A minimalistic todo list application that features drag and drop for setting priorities for your items.",
+        "link": "http://todolist.andrewrattana.com",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "Get the latest news, trends and happenings in music!",
+        "type": "design"
+      },
+      "modal": {
+        "image": "musicsite.jpg",
+        "title": "MusicSky",
+        "description": "A concept website I designed for the latest trends and news in music, focusing on clean and modern design trends.",
+        "link": "img/musicsite-large.jpg",
+        "lightbox": true
+      }
+    },
+    {
+      "timeline": {
+        "description": "Attack of the retreating invisible cows!",
+        "type": "design"
+      },
+      "modal": {
+        "image": "cows.jpg",
+        "title": "The Cow Warriors",
+        "description": "A logo I designed for my team of 4 in a fierce corporate battle royale. These were printed on t-shirts and the title remained as Attack of the Retreating Invisible Cows!",
+        "link": "",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "Theme: Radiating Colours",
+        "type": "design"
+      },
+      "modal": {
+        "image": "book1.jpg",
+        "title": "Student Handbook 2012",
+        "description": "I made a design for the Student Handbook 2012 competition at my community college, unfortunately it ended in 2nd place.",
+        "link": "img/book1-large.jpg",
+        "lightbox": true
+      }
+    },
+    {
+      "timeline": {
+        "description": "Theme: Mobile Apps",
+        "type": "design"
+      },
+      "modal": {
+        "image": "book2.jpg",
+        "title": "Student Handbook 2013",
+        "description": "I made a design for the Student Handbook 2013 competition at my community college, unfortunately it ended in 2nd place... again.",
+        "link": "img/book2-large.jpg",
+        "lightbox": true
+      }
+    },
+    {
+      "timeline": {
+        "description": "Theme: Game On",
+        "type": "design"
+      },
+      "modal": {
+        "image": "book3.jpg",
+        "title": "Student Handbook 2014",
+        "description": "I made a design for the Student Handbook 2014 competition at my community college, unfortunately this one didn't place, looking back I think a warrior holding two giant axes probably wasn't a good idea...",
+        "link": "img/book3-large.jpg",
+        "lightbox": true
+      }
+    },
+    {
+      "timeline": {
+        "description": "A report cover page about user application data and statistics",
+        "type": "design"
+      },
+      "modal": {
+        "image": "enduser.jpg",
+        "title": "End User Report",
+        "description": "The cover page for a report I designed for <a href='http://www.infotech.com'>Info-Tech Research Group</a> for corporations to measure how well their users are managing applications",
+        "link": "img/enduser-large.jpg",
+        "lightbox": true
+      }
+    },
+    {
+      "timeline": {
+        "description": "The future of car HUDs?",
+        "type": "design"
+      },
+      "modal": {
+        "image": "hud.png",
+        "title": "Car Dashboard HUD",
+        "description": "A concept design I created of a futuristic car's heads up display. Focusing heavily on sci-fi interfaces.",
+        "link": "",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "A modern and minimalistic music player.",
+        "type": "design"
+      },
+      "modal": {
+        "image": "music.jpg",
+        "title": "Music Player",
+        "description": "A concept design I created of a music player application.",
+        "link": "",
+        "lightbox": false
+      }
+    },
+    {
+      "timeline": {
+        "description": "A super minimalistic media player.",
+        "type": "design"
+      },
+      "modal": {
+        "image": "movie.jpg",
+        "title": "Media Player",
+        "description": "A concept design I created of a media player application. Aimed to be extremely minimal and only have the required tools for playing any type of media.",
+        "link": "",
+        "lightbox": false
+      }
+    }
+  ]
+}

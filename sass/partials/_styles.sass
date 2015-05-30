@@ -1,0 +1,278 @@
+.browser-wrap
+  position: relative
+  width: 100%
+  background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%)
+
+.browser
+  display: inline-block
+  position: absolute
+  top: 50%
+  left: 0
+  right: 0
+  margin: 0 auto
+  background: $white-light
+  max-width: 550px
+  max-height: 300px
+  width: 80px
+  height: 80px
+  overflow: hidden
+  +border-radius(5px)
+  +box-shadow(0 2px 5px rgba($black, .5))
+  .icon
+    display: table
+    width: 100%
+    height: 100%
+    text-align: center
+    span
+      display: table-cell
+      vertical-align: middle
+      color: $gray
+  .header, .body
+    padding: .5em 1em
+  .header
+    background: $white-dark
+    color: $white-darker
+    .right
+      float: right
+  .tablet
+    text-align: center
+    // border: 1px solid $white-darker
+    color: $white-darker
+    background: $white-dark
+    margin: 10px 10px 0
+    height: 75%
+    position: relative
+    span
+      position: absolute
+      bottom: -38px
+      left: 0
+      right: 0
+      text-align: center
+  .phone
+    background: $white-dark
+    margin: 10px 0
+    height: 80%
+
+.aboutAni
+  max-width: 250px
+  width: 100%
+  height: 300px
+  position: absolute
+  margin: auto
+  top: 50%
+  left: 0
+  right: 0
+  overflow: hidden
+  background: $white-light
+  z-index: 2
+  +transform(translateY(-50%))
+  +border-radius(5px)
+  +box-shadow(0 2px 5px rgba($black, .5))
+
+.design
+  .head
+    margin-bottom: 1em
+    width: 100%
+    height: 100px
+    background: $white-dark
+  .box-contain
+    margin: 0 auto
+    width: 245px
+    text-align: center
+  .box
+    display: inline-block
+    margin: 5px 5px 5px
+    width: 20%
+    height: 50px
+    background: $white-dark
+  .box-large
+    width: 70%
+    height: 60px
+
+.develop
+  height: 100%
+  background: $white-darker
+  .sidebar
+    width: 30%
+    height: 100%
+    float: left
+    background: $white-light
+  .codebar
+    width: 70%
+    height: 100%
+    padding: 1em
+    float: right
+  .line
+    margin-bottom: 15px
+    width: 100%
+    height: 7px
+    background: $white
+
+.heart
+  text-align: center
+  height: 100%
+  span
+    display: inherit
+    position: relative
+    top: 50%
+    color: $red
+    +transform(translateY(-50%))
+
+.more
+  position: relative
+  top: 50%
+  +transform(translateY(-50%))
+  color: $gray
+  font-weight: bold
+  text-transform: uppercase
+  white-space: nowrap
+  text-align: center
+  span
+    position: relative
+    top: -1px
+    margin-right: 5px
+    color: $white-darker
+    vertical-align: middle
+
+.intro-links
+  position: absolute
+  padding: 1em
+  a
+    color: $white-darker
+    margin-right: 10px
+    &:hover
+      color: $white
+
+.load
+  z-index: 1
+  position: absolute
+  left: 0
+  right: 0
+  top: 50%
+  margin: auto
+  max-width: 500px
+  color: $white
+  text-align: center
+  +transform(translateY(-50%))
+  .icon
+    +animation(spin 3s linear infinite)
+  .quote
+    margin-top: 1em
+    font-size: 23px
+    font-weight: lighter
+    color: $white-dark
+
+.spin
+  +animation(spin 1s linear infinite)
+
++keyframes(spin)
+  from
+    +transform(rotate(0deg))
+  to
+    +transform(rotate(360deg))
+
+.text
+  position: absolute
+  top: 50%
+  bottom: 0
+  margin-top: -150px
+  width: 100%
+  color: $white-darker
+  text-align: center
+  text-transform: uppercase
+  font-weight: bold
+
+.aboutText
+  margin-top: -200px
+  div
+    display: inline-block
+
+.about-h3
+  border-top: 1px solid $white-light
+  margin-top: 1em
+  padding-top: 1em
+
+.intro .button
+  margin-top: 20%
+
+.about
+  width: 100%
+  padding: 0
+  color: $black
+  text-align: center
+
+.about-container
+  +font-size(15)
+  display: block
+  margin: 0 auto
+  padding: 1em
+  width: 100%
+  max-width: 610px
+  +breakpoint($screen-xs)
+    padding: 3em
+
+.about-info
+  text-align: center
+
+.about-picture
+  display: block
+  margin: 0 auto
+  width: 100px
+  height: 100px
+  background: url('../img/avatar.jpg') center center no-repeat
+  +border-radius(100%)
+  +background-size(contain)
+
+.about-name
+  +font-size(25)
+  margin: .5em 0 1em
+  display: block
+
+.about-details
+  margin-bottom: 1em
+  padding-left: 0
+  li
+    width: 100%
+    padding: 0 .5em
+    list-style-type: none
+    text-align: left
+    margin: 1em 0
+    font-weight: normal
+    +breakpoint($screen-xs)
+      width: 48%
+    &.odd
+      float: left
+    &.even
+      float: right
+    span
+      text-transform: uppercase
+      font-weight: bold
+      display: block
+      +font-size(11)
+      opacity: .4
+      padding-bottom: 5px
+      margin-bottom: 5px
+      border-bottom: 1px solid $white-dark
+    a
+      color: $black
+      border-bottom: 1px dotted $primary-darker
+      &:hover
+        color: $primary
+
+.btn
+  display: inline-block
+  text-align: center
+  padding: 1em 1.5em
+  background: $primary
+  text-transform: uppercase
+  +border-radius(5px)
+  font-weight: bold
+  &:hover
+    background: $primary-dark
+  &:active
+    background: $primary-darker
+
+a.btn
+  color: $white
+  &:hover
+    color: $white

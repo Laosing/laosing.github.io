@@ -1,0 +1,32 @@
+html
+  +box-sizing(border-box)
+  font-size: 62.5%
+  height: 100%
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  +font-size(16)
+  font-family: 'Lato', sans-serif
+  background: $white-lighter
+  height: 100%
+  position: relative
+
+a
+  +link-colors($primary, $primary-darker)
+  text-decoration: none
+  &:hover, &:focus
+    text-decoration: none
+
+a, input
+  +transition(all .2s ease)
+
+a, input, button, textarea, select
+  &:active,
+  &:focus
+    +box-shadow(none)
+    outline: none
+
+p
+  line-height: 1.7
