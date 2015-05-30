@@ -42,22 +42,29 @@
 .hidden
   display: none !important
 
-.button
-  +inline-block()
-  padding: 14px 27px 14px 29px
-  white-space: nowrap
-  border-radius: 50px
+.spin
+  +animation(spin 1s linear infinite)
+
++keyframes(spin)
+  from
+    +transform(rotate(0deg))
+  to
+    +transform(rotate(360deg))
+
+.btn
+  display: inline-block
   text-align: center
-  cursor: pointer
-  font-weight: 500
-  line-height: 14px
-  letter-spacing: 1px
+  padding: 1em 1.5em
+  background: $primary
   text-transform: uppercase
-  text-decoration: none
-  +font-size(14)
-  background: $white
-  border: 1px solid transparent
-  @extend .animate
+  +border-radius(5px)
+  font-weight: bold
   &:hover
-    opacity: .8
-    color: $black
+    background: $primary-dark
+  &:active
+    background: $primary-darker
+
+a.btn
+  color: $white
+  &:hover
+    color: $white

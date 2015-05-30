@@ -153,6 +153,7 @@
   max-width: 500px
   color: $white
   text-align: center
+  +transform-style(preserve-3d)
   +transform(translateY(-50%))
   .icon
     +animation(spin 3s linear infinite)
@@ -161,15 +162,6 @@
     font-size: 23px
     font-weight: lighter
     color: $white-dark
-
-.spin
-  +animation(spin 1s linear infinite)
-
-+keyframes(spin)
-  from
-    +transform(rotate(0deg))
-  to
-    +transform(rotate(360deg))
 
 .text
   position: absolute
@@ -186,14 +178,6 @@
   margin-top: -200px
   div
     display: inline-block
-
-.about-h3
-  border-top: 1px solid $white-light
-  margin-top: 1em
-  padding-top: 1em
-
-.intro .button
-  margin-top: 20%
 
 .about
   width: 100%
@@ -229,6 +213,7 @@
   display: block
 
 .about-details
+  margin-top: 2em
   margin-bottom: 1em
   padding-left: 0
   li
@@ -258,21 +243,3 @@
       border-bottom: 1px dotted $primary-darker
       &:hover
         color: $primary
-
-.btn
-  display: inline-block
-  text-align: center
-  padding: 1em 1.5em
-  background: $primary
-  text-transform: uppercase
-  +border-radius(5px)
-  font-weight: bold
-  &:hover
-    background: $primary-dark
-  &:active
-    background: $primary-darker
-
-a.btn
-  color: $white
-  &:hover
-    color: $white
