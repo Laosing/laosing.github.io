@@ -24,7 +24,7 @@ aboutAnimation
   .from('.text-design', .3, {autoAlpha: 0, y: '-20px', ease: Power3.easeOut})
   .from('.head', .5, {autoAlpha: 0, y:'-20px', ease: Power3.easeOut})
   .staggerFrom('.box', .5, {autoAlpha: 0, y: '-20px', ease: Power3.easeOut}, '.15', '-=.3')
-  .to('.text-design', .3, {display: 'none', autoAlpha: 0, y: '20px', ease: Power3.easeIn, delay: .7})
+  .to('.text-design', .3, {display: 'none', autoAlpha: 0, y: '20px', ease: Power3.easeIn, delay: .5})
   .to('.design', .5, {autoAlpha: 0, y: '20px', ease: Power3.easeIn, display: 'none'})
   .to('.aboutAni', 1, {scale: '.3', ease: Elastic.easeInOut.config(1, 0.75)}, '-=.5')
   .to('.aboutAni', 1, {rotation: '360deg', ease: Elastic.easeOut.config(1, 0.75)}, '-=.5')
