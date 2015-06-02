@@ -85,17 +85,16 @@ $('.replay').click(function(event) {
   aboutAnimation.progress(0);
 });
 
-$('.message').hover(function() {
-  $(this).addClass('tada');
-}, function() {
-  $(this).removeClass('tada');
-});
+hoverClass('.about-picture', 'jello');
+hoverClass('.message', 'tada');
 
-$('.about-picture').hover(function() {
-  $(this).addClass('jello');
-}, function() {
-  $(this).removeClass('jello');
-});
+function hoverClass(el, className) {
+  $(el).hover(function() {
+    $(this).addClass(className);
+  }, function() {
+    $(this).removeClass(className);
+  });
+}
 
 $(window).resize(function() {
   $('.browser-height').height($(this).height());
