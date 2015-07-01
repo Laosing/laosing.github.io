@@ -1,6 +1,98 @@
 $(function() {
 "use strict";
 
+var $btn = $('#btn-about');
+
+var browserAnimation = new TimelineMax({ repeat: -1, paused: true});
+browserAnimation
+  .from('.top', .5, {y: '20px', autoAlpha: 0})
+  .from('.middle', .5, {y: '20px', autoAlpha: 0}, '-=.2')
+  .from('.middle .box-container', .5, {y: '20px', autoAlpha: 0}, '-=.2')
+  .to('.middle-overflow', 2, {y: '-60%', ease: Back.easeOut.config(1.4), delay: .5})
+  .to('.middle-overflow', 2, {y: '0%', ease: Back.easeOut.config(1.4)})
+  .to('.browser', 2, {width: '300px', ease: Elastic.easeOut.config(1, 0.75), delay: .5}, 'mobile')
+  .to('.box-right, .close, .back', .3, {autoAlpha: 0, display: 'none'}, 'mobile+=.5')
+  .to('.searchbar', .5, {left: 0}, 'mobile+=.5')
+  .to('.middle', .5, {width: '100%'}, 'mobile+=.5')
+  .to('.box-container .box', .5, {width: '100%', margin: '0 0 2%'}, 'mobile+=.5')
+  .to('.box-logo', .5, {margin: '0 0 10%'}, '-=2')
+  .from('.mobile-menu, .mobile-more', .3, {opacity: 0}, '-=1.5')
+  .from('.sidebar', .1, {autoAlpha: 0})
+  .to('.middle', .4, {x: '-70%', ease: Power2.easeOut})
+  .to('.middle', .4, {x: '0%', ease: Power2.easeInOut, delay: 1})
+  .to('.middle-overflow', 3, {y: '-80%', ease: Back.easeOut.config(1.4), delay: .5})
+  .to('.middle-overflow', 2, {y: '0%', ease: Back.easeOut.config(1.4)})
+  .to('.box-container', .3, {autoAlpha: 0, y: '20px', ease: Power2.easeIn})
+  .to('.middle-overflow', .3, {autoAlpha: 0, y: '20px', ease: Power2.easeIn}, '-=.1')
+  .to('.top', .3, {autoAlpha: 0, y: '20px', ease: Power2.easeIn}, 'end-=.1')
+  .to('.browser', 2, {maxWidth: 'initial', width: '800px', ease: Elastic.easeOut.config(1, 1)}, '-=.1');
+
+$('.browser').css('opacity', '0');
+
+var introAnimation = new TimelineMax({
+  onComplete: function() {
+    TweenLite.fromTo('.browser', .5, {opacity: 0, y: '-20px'}, {y: 0, opacity: 1, onComplete: function() {
+      browserAnimation.play();
+    }})
+  }
+});
+introAnimation
+  .from('.intro h2', .7, {autoAlpha: 0})
+  .from('.intro h2', .5, {y: '20px'}, '-=.1')
+  .from('.intro p', .5, {autoAlpha: 0, y: '-20px'}, '-=.4')
+  .staggerFrom('.intro .btn', .3, {autoAlpha: 0, y: '-20px', ease: Power4.easeOut}, '.1', '-=.3');
+
+function checkHash() {
+  var hash = location.hash.replace('#','');
+
+  switch(hash) {
+    case 'about':
+      setAbout();
+      break;
+
+    default:
+      clearHash();
+  }
+}
+
+checkHash();
+
+function setAbout() {
+  location.hash = 'about';
+  // $('.about, .modal-bg').show();
+  // $(this).x
+  $('.about').css('display', 'block');
+
+  var aboutAnimation = new TimelineLite();
+  aboutAnimation
+    .fromTo('.modal-bg', 1, {opacity: 0}, {display: 'block', autoAlpha: .9}, 'start')
+    .from('.about', .3, {overflow: 'hidden', display: 'none', width: $btn.css('width'), height: $btn.css('height'), x: 0, y: 0, ease: Power4.easeInOut}, 'start')
+    .from('.about-container', .5, {autoAlpha: 0, y: '20px'}, 'start+=.3')
+    // .to('.about', .1, {clearProps: 'margin, width, height'})
+}
+
+function clearHash() {
+  location.hash = '';
+}
+
+$('#btn-about').click(function(event) {
+  event.preventDefault();
+  setAbout();
+});
+
+$('.modal-bg').click(function() {
+  clearHash();
+  var aboutAnimationClose = new TimelineLite();
+  aboutAnimationClose
+    .to('.modal-bg', 1, {display: 'none', autoAlpha: 0}, 'start')
+    .to('.about-container', .3, {autoAlpha: 0}, 'start')
+    .fromTo('.about', .3, {overflow: 'hidden'}, {display: 'block', width: $btn.css('width'), height: $btn.css('height'), ease: Power3.easeInOut}, 'start+=.3')
+    .to('.about, .about-container', .3, {opacity: 0, display: 'none', autoAlpha: 0, clearProps: 'all'}, '-=.3')
+})
+
+
+return;
+
 var quotes = [
   "Did you smile today yet? My dog certainly did.",
   "Believe in yourself.<br> I don't want to be the only one who does.",
@@ -18,7 +110,7 @@ $('.quote').html(quotes[Math.floor(Math.random() * quotes.length)]);
 TweenLite.fromTo($('.quote'), .7, {alpha: 0, y: '-20px'}, {alpha: 1, y: '0', ease: Power2.easeOut});
 
 var aboutAnimation = new TimelineLite();
-aboutAnimation
+aboutAnimation.pause()
   .to($('.load'), .5, {autoAlpha: 0, y: '-40%', display: 'none', delay: 2})
   .from('.aboutAni', 1, {autoAlpha: 0, y: '20px', width: '100px', height: '20px', ease: Elastic.easeOut.config(1, 0.5)})
   .from('.text-design', .3, {autoAlpha: 0, y: '-20px', ease: Power3.easeOut})
