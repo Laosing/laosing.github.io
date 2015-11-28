@@ -24,20 +24,28 @@
   <![endif]-->
   <h1 class="element-invisible">Andrew Rattana</h1>
 
-  <section data-sr class="intro">
+  <div class="nav">
+    <ul>
+      <li><a title="Home" href="#home"><span class="ion-android-home"></span><span class="element-invisible">Home</span></a></li>
+      <li><a title="About" href="#about"><span class="ion-android-person"></span><span class="element-invisible">About</span></a></li>
+      <li><a title="Work" href="#work"><span class="ion-ios-briefcase"></span><span class="element-invisible">Work</span></a></li>
+    </ul>
+  </div>
+
+  <section data-sr id="home">
     <div class="wrapper">
       <div class="container">
         <div class="text">
           <h2>I build <strong>awesome</strong> things for the web!</h2>
           <p>My name is <strong>Andrew Rattana</strong> and I'm a web designer and developer!</p>
-          <a href="#" id="btn-about" class="btn btn-hollow">About</a>
-          <a href="#" id="btn-work" class="btn btn-primary">Work</a>
+          <a href="#about" class="btn btn-hollow">About</a>
+          <a href="#work" class="btn btn-primary">Work</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section data-sr class="about">
+  <section data-sr id="about">
     <h2 class="element-invisible">About me</h2>
     <div class="about-container">
       <div class="about-wrap">
@@ -64,40 +72,42 @@
     </div>
   </section>
 
-  <section data-sr class="work">
+  <section data-sr id="work">
     <h2 class="element-invisible">My work</h2>
-    <ul class="work-list animate">
-      <li>
-        <a href="#">
-          <strong class="title">Project</strong>
-          <span class="role">Designer</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <strong class="title">Project</strong>
-          <span class="role">Designer</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <strong class="title">Project</strong>
-          <span class="role">Designer</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <strong class="title">Project</strong>
-          <span class="role">Designer</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <strong class="title">Project</strong>
-          <span class="role">Designer</span>
-        </a>
-      </li>
-    </ul>
+    <div class="work-container">
+      <ul class="work-list animate">
+        <li>
+          <a href="http://www.fanshawec.ca">
+            <strong class="title">Fanshawe College</strong>
+            <span class="role">Developer</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.abilityfirst.ca">
+            <strong class="title">Ability First</strong>
+            <span class="role">Developer</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.londonchildrensmuseum.ca">
+            <strong class="title">London's Children Museum</strong>
+            <span class="role">Developer</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://lcc.on.ca">
+            <strong class="title">London Children's Connection</strong>
+            <span class="role">Developer</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.infotech.com/benchmarking/enduser-satisfaction">
+            <strong class="title">End User Satisfaction Program</strong>
+            <span class="role">Designer</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </section>
 
 
@@ -115,11 +125,11 @@
   </script>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/ScrollToPlugin.min.js"></script>
   <script src="js/vendor/scrollReveal.min.js"></script>
   <script>window.sr = new scrollReveal({
     reset: true,
-    scale: {'power': 0},
-    move: '50px',
+    move: '0px',
     vFactor:  0.45
   });</script>
 
