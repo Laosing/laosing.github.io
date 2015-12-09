@@ -22,7 +22,7 @@
 
 =font-size($sizeValue: 16)
   font-size: ($sizeValue) + px
-  font-size: ($sizeValue / 10) + rem
+  font-size: ($sizeValue / 16) + rem
 
 .clearfix
   +pie-clearfix()
@@ -53,18 +53,49 @@
 
 .btn
   display: inline-block
+  padding: .7em 2em
+  margin-bottom: 10px
+  min-width: 180px
+  +font-size(14)
+  font-weight: 600
   text-align: center
-  padding: 1em 1.5em
-  background: $primary
   text-transform: uppercase
-  +border-radius(5px)
-  font-weight: bold
-  &:hover
-    background: $primary-dark
-  &:active
-    background: $primary-darker
+  border-width: 1px
+  border-style: solid
+  border-color: transparent
+  +border-radius(3px)
 
-a.btn
-  color: $white
+.btn-primary
+  background: $white
+  +link-colors($black, $black)
   &:hover
-    color: $white
+    background: $white-dark
+  &:active
+    background: $white-darker
+
+.btn-hollow
+  background: none
+  border: 1px solid $white
+  +link-colors($white, $black)
+  &:hover
+    background: $white
+
+.btn-hollow-dark
+  background: none
+  border: 1px solid $black
+  +link-colors($black, $white)
+  &:hover
+    background: $black
+
+.btn-hollow-light
+  background: none
+  border: 1px solid $white
+  +link-colors($white, $black)
+  &:hover
+    background: $white
+
+.at:before
+  content: '@'
+
+.dot:before
+  content: '.'
