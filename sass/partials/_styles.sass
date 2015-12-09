@@ -52,9 +52,10 @@
   color: $white-light
   h2
     +font-size(37)
-    margin-top: 0
     margin-bottom: 10px
     font-weight: 400
+    +breakpoint(0 $screen-sm)
+      margin-top: 2em
     +breakpoint($screen-sm)
       margin-bottom: 0
       +font-size(46)
@@ -101,8 +102,6 @@
   color: $white-light
   z-index: 10
   +font-size(15)
-  border-radius: 3px
-  +box-shadow(0 2px 8px $black)
 
 #work
   +breakpoint(0 $screen-sm)
@@ -153,7 +152,7 @@
       font-weight: 600
       display: block
       +font-size(12)
-      opacity: .4
+      opacity: .5
       margin-bottom: 5px
     a
       color: $white-light
@@ -168,7 +167,7 @@
   &:hover a
     opacity: .2
   li
-    border-bottom: 1px solid $black-lighter
+    border-bottom: 1px solid transparentize($white, .8)
     &:last-child
       border: none
     a
@@ -188,3 +187,23 @@
 
 .role
   +font-size(18)
+
+.bg, .bg2
+  position: fixed
+  top: 0
+  width: 100%
+  height: 100%
+
+.bg
+  background: linear-gradient(-20deg, #E91E63, #FF5722)
+
+.bg2
+  background: linear-gradient(-20deg, #63158A, #70169E)
+  opacity: 0
+
+.logo
+  position: fixed
+  z-index: 1
+  fill: white
+  width: 50%
+  opacity: .1

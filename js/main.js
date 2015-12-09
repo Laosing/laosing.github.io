@@ -20,8 +20,12 @@ $(function() {
   }
 
   var $nav = $('.nav a');
+  var $bg = $('.bg2');
   // Scroll events
   $(document).scroll(function(e) {
+    // Background animation trick
+    $bg.css('opacity', window.pageYOffset / ($(this).height() - $(window).height()));
+
     $('section').each(function() {
       // Set hash on scroll
       var distance = window.pageYOffset - $(this).offset().top;

@@ -2,7 +2,15 @@ $percent-light: 5%
 $percent: 10%
 $percent-strong: 15%
 
-$primary: #e74c3c
+$blue: #3498db
+$red: #e74c3c
+$yellow: #f1c40f
+$teal: #2ecc71
+$purple: #9b59b6
+$green: #2ecc71
+$turquoise: #1abc9c
+
+$primary: $yellow
 $primary-lighter: lighten($primary, $percent-strong)
 $primary-light: lighten($primary, $percent)
 $primary-dark: darken($primary, $percent)
@@ -13,14 +21,6 @@ $secondary-lighter: lighten($secondary, $percent-strong)
 $secondary-light: lighten($secondary, $percent)
 $secondary-dark: darken($secondary, $percent)
 $secondary-darker: darken($secondary, $percent-strong)
-
-$blue: #3498db
-$red: #e74c3c
-$yellow: #f1c40f
-$teal: #2ecc71
-$purple: #9b59b6
-$green: #2ecc71
-$turquoise: #1abc9c
 
 $colors: ('blue': $blue, 'red': $red, 'yellow': $yellow, 'teal': $teal, 'purple': $purple, 'green': $green, 'turquoise': $turquoise)
 @each $color, $hex in $colors
