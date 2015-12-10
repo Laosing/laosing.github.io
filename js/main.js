@@ -21,23 +21,20 @@ $(function() {
 
   var $nav = $('.nav a');
   var $bg = $('.bg2');
+  var $body = $('body');
   // Scroll events
   $(document).scroll(function(e) {
     // Background animation trick
     $bg.css('opacity', window.pageYOffset / ($(this).height() - $(window).height()));
 
     $('section').each(function() {
-      // Set hash on scroll
+      // Set active nav on scroll
       var distance = window.pageYOffset - $(this).offset().top;
-      var hash = $(this).attr('href');
-      if(distance < 30 && distance > -30 && window.location.hash != hash) {
-        history.pushState(null, null, '#' + $(this).attr('id'));
-      }
-
-      // Set active class on nav
-      if(window.location.hash === '#' + $(this).attr('id')) {
-        $nav.removeClass('active');
-        $nav.filter($('[href=#' + $(this).attr('id') + ']')).addClass('active');
+      if(distance < 30 && distance > -30) {
+        $nav
+          .removeClass('active')
+          .filter($('[href=#' + $(this).attr('id') + ']'))
+          .addClass('active');
       }
     });
   });
@@ -45,7 +42,9 @@ $(function() {
   // Click events
   $("#home a.btn, .nav a").on('click', function(event) {
     event.preventDefault();
-    var hash = $(this).get(0).hash.slice(1);
+    history.pushState(null, null, $(this).attr('href'));
+
+    var hash = $(this).attr('href').slice(1);
     scrollTo(hash);
   });
 
