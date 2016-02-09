@@ -214,7 +214,7 @@ var Portfolio = function() {
   }
 
   this.prevLogic = function(el) {
-    var el = el.parent(),
+    var el = el.parent().parent(),
         index = el.data('work'),
         prev = el.prev(),
         last = self.timelineArray.length - 1,
@@ -228,7 +228,7 @@ var Portfolio = function() {
   }
 
   this.nextLogic = function(el) {
-    var el = el.parent(),
+    var el = el.parent().parent(),
         index = el.data('work'),
         next = el.next(),
         timelineElIndex = index < self.workArray.length - 1 ? index + 1 : 0,

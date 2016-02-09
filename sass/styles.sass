@@ -57,6 +57,7 @@ p
   line-height: 1.5
 
 hr
+  margin: 2em 0
   height: 1px
   border: none
   background: #404040
@@ -126,6 +127,7 @@ hr
   width: 70%
   background: rgba(black, .5)
   z-index: 21
+  overflow-x: hidden
   display: none
   +breakpoint($break-mobile)
     overflow-x: hidden
@@ -138,15 +140,23 @@ hr
     text-align: center
     font-size: 2em
   h4
-    margin: 0 32px
+    margin: 0 32px 8px
     font-size: 1.5em
   iframe
     width: 100%
   hr
     background: #EAEAEA
+  img
+    display: block
+    width: 100%
+    height: auto
+    margin-bottom: 32px
   p
-    margin: 16px 32px
+    margin: 0 32px 32px
     line-height: 1.5
+    em
+      display: block
+      padding: 1em 2em
     a
       color: $primary
       &:hover
@@ -247,35 +257,26 @@ hr
   line-height: 1.5em
   color: $white-dark
 
-.work-container
-  width: 100%
-  position: absolute
-  padding-top: 4em
-  overflow-x: hidden
-  overflow-y: initial
-
 .lt-ie9 .work-container
   overflow-y: scroll
 
 .work-piece
   position: absolute
   width: 90%
+  height: 90%
   left: 100%
   right: 0
+  top: 5%
   max-width: 800px
   background: $white-lighter
-  padding: 1em 1em 5em
-  margin: 0 auto 2em
+  padding: 0
+  margin: 0 auto
   list-style: none
   z-index: 30
+  overflow-y: auto
   display: none
   &.active
     display: block
-  img
-    display: block
-    width: 100%
-    height: auto
-    margin: 0 auto 1em
   .button
     border: 1px solid $white-dark
     &:hover
@@ -283,8 +284,10 @@ hr
       color: $white
       border: 1px solid $primary-dark
 
+.buttons
+  padding: 1em
+
 .prev, .next
-  position: absolute
   padding: 0
   z-index: 10
   &.ion-1
@@ -598,7 +601,7 @@ hr
   position: absolute
   top: 0
   bottom: 0
-  width: 98%
+  width: 100%
   z-index: 22
   display: none
 

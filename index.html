@@ -113,11 +113,13 @@
     <script id="work-template" type="text/x-handlebars-template">
     {{#each work}}
       <li class="work-piece" data-work="{{@index}}">
-        <a href="#" class="next button ion-1 ion-chevron-right" title="Next"><span class="element-invisible">Next</span></a>
-        <a href="#" class="prev button ion-1 ion-chevron-left" title="Previous"><span class="element-invisible">Previous</span></a>
         <div class="work-info">
           <h3>{{modal.title}}</h3>
           <div>{{{modal.description}}}</div>
+        </div>
+        <div class="buttons clearfix">
+          <a href="#" class="next fr button ion-1 ion-chevron-right" title="Next"><span class="element-invisible">Next</span></a>
+          <a href="#" class="prev fl button ion-1 ion-chevron-left" title="Previous"><span class="element-invisible">Previous</span></a>
         </div>
       </li>
     {{/each}}
