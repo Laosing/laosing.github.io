@@ -188,6 +188,12 @@ var Portfolio = function() {
         self.workArray = $('#work-container li');
 
         self.setLogic();
+
+        $('.work-piece').each(function(index) {
+          $(this).find('img.lazy:first').lazyload({
+            event: 'first' + index,
+          });
+        });
       });
   }
 
@@ -199,6 +205,7 @@ var Portfolio = function() {
         var el = $(self.workArray[index]);
 
         self.mainLogic(el, $(this));
+        $("img.lazy").trigger("first" + index);
       });
     });
 
@@ -324,8 +331,7 @@ var Portfolio = function() {
   function showImages(el) {
     el.find('img.lazy').lazyload({
       effect : "fadeIn",
-      container: '.work-container',
-      threshold : 100
+      container: el,
     })
   }
 
