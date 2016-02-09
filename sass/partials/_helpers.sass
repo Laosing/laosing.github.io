@@ -22,7 +22,7 @@
 
 =font-size($sizeValue: 16)
   font-size: ($sizeValue) + px
-  font-size: ($sizeValue / 16) + rem
+  font-size: ($sizeValue / 10) + rem
 
 .clearfix
   +pie-clearfix()
@@ -42,60 +42,22 @@
 .hidden
   display: none !important
 
-.spin:before
-  +animation(spin 3s linear 0s infinite)
-
-+keyframes(spin)
-  from
-    +transform(rotate(0deg))
-  to
-    +transform(rotate(360deg))
-
-.btn
-  display: inline-block
-  padding: .7em 2em
-  margin-bottom: 10px
-  min-width: 180px
-  +font-size(14)
-  font-weight: 600
+.button
+  +inline-block()
+  padding: 14px 27px 14px 29px
+  white-space: nowrap
+  border-radius: 50px
   text-align: center
+  cursor: pointer
+  font-weight: 500
+  line-height: 14px
+  letter-spacing: 1px
   text-transform: uppercase
-  border-width: 1px
-  border-style: solid
-  border-color: transparent
-  +border-radius(3px)
-
-.btn-primary
+  text-decoration: none
+  +font-size(14)
   background: $white
-  +link-colors($black, $black)
+  border: 1px solid transparent
+  @extend .animate
   &:hover
-    background: $white-dark
-  &:active
-    background: $white-darker
-
-.btn-hollow
-  background: none
-  border: 1px solid $white
-  +link-colors($white, $black)
-  &:hover
-    background: $white
-
-.btn-hollow-dark
-  background: none
-  border: 1px solid $black
-  +link-colors($black, $white)
-  &:hover
-    background: $black
-
-.btn-hollow-light
-  background: none
-  border: 1px solid $white
-  +link-colors($white, $black)
-  &:hover
-    background: $white
-
-.at:before
-  content: '@'
-
-.dot:before
-  content: '.'
+    opacity: .8
+    color: $black

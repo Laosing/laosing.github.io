@@ -2,182 +2,65 @@
   "work": [
     {
       "timeline": {
-        "description": "Welcome to my site",
-        "type": "none"
+        "description": "Info-Tech Research Group",
+        "type": "design"
       },
       "modal": {
-        "image": "3-dark.jpg",
-        "title": "Andrew Rattana",
-        "description": "Welcome to my site! I'm a web developer that specializes in a broad range of areas: from web design & development, to motion graphics & illustration, to traditional pen and paper art. Last but not least I love programming and solving  both design and coding problems. Please enjoy my site and if you have any questions don't hesitate to send me a <a href='mailto:andrew.rattana@gmail.com'>message</a>.",
+        "image": "",
+        "title": "End User Satisfaction Program",
+        "description": "<img class='lazy' data-original='img/enduser/enduser.jpg' /><p class='tac'><em>Service optimization is nearly impossible to perform without an honest and thorough understanding of end user sentiment toward IT services and software.</em> - ITRG</p><h4>Problem</h4><p>Create a survey which evaluated end user perspectives on company innovation, IT agility, and satisfaction with how technology enables them to do their job. Identify opportunities to improve the reputation of IT, both across the organization and within specific departments.</p><h4>Team</h4><p>The team consisted of myself as the designer and front-end developer, Chris O'Conner as the information researcher, and Taylor Phillips as the backend developer.</p><h4>Product Goal</h4><p>Share end user satisfaction and importance ratings of core IT services, IT communications and business enablement to focus on the right end user groups or lines of business, and ramp up satisfaction and productivity.</p><hr /><br /><h4>Research</h4><p>Having the initial survey questions from Chris and the type of data that needed to be presented in the survey, I started off with many sketches to get ideas and concepts out of my head.</p><img class='lazy' data-original='img/enduser/end-user-questions.png' /><img class='lazy' data-original='img/enduser/enduser-sketch.jpg' /><img class='lazy' data-original='img/enduser/enduser-sketch-2.jpg' /><h4>Wireframes &amp; User Flow </h4><p>After laying out the pages on wireframes we noticed that the it was difficult for the user to know where to start reading. After multiple designs and iterations I came with the solution to guide the user with arrows throughout the sections.</p><img class='lazy' data-original='img/enduser/end-user-wireframe.png' /><h4>Final Design</h4><p>After finalizing the user flow and making some final decisions with the team, I began on the high-fidelity designs. We had many different mockups and iterations. Everything was placed intentionality with good reasoning and decision making behind it. There were a lot of tradeoffs due to the amount of space that could be placed on a page, but that restriction also helped us condense the information so it was straight to the point.</p><img class='lazy' data-original='img/enduser/end-user-1.jpg' /><img class='lazy' data-original='img/enduser/end-user-2.jpg' /><img class='lazy' data-original='img/enduser/end-user-3.jpg' /><img class='lazy' data-original='img/enduser/end-user-4.jpg' /><img class='lazy' data-original='img/enduser/end-user-5.jpg' /><img class='lazy' data-original='img/enduser/end-user-6.jpg' /><img class='lazy' data-original='img/enduser/end-user-7.jpg' /><img class='lazy' data-original='img/enduser/end-user-8.jpg' /><img class='lazy' data-original='img/enduser/end-user-9.jpg' /><img class='lazy' data-original='img/enduser/end-user-10.jpg' />",
         "link": "",
         "lightbox": false
       }
     },
     {
       "timeline": {
-        "description": "Offering only the best tech news and reviews!",
-        "type": "web"
-      },
-      "modal": {
-        "image": "lighsing.png",
-        "title": "Lighsing Tech News",
-        "description": "Front end design and development of a self-made project of a tech news center.",
-        "link": "http://lighsing.andrewrattana.com",
-        "lightbox": false
-      }
-    },
-    {
-      "timeline": {
-        "description": "After Effects animations with front end design!",
-        "type": "web"
-      },
-      "modal": {
-        "image": "videojs.png",
-        "title": "AE Phone Animations",
-        "description": "Creating modern vector phone animations with After Effects and designing a minimal site platform for videos.",
-        "link": "http://videojs.andrewrattana.com",
-        "lightbox": false
-      }
-    },
-    {
-      "timeline": {
-        "description": "A tournament management and hosting application microsite.",
-        "type": "web"
-      },
-      "modal": {
-        "image": "bracketsc2.png",
-        "title": "BracketSC2 Microsite",
-        "description": "BracketSC2 is a Starcraft 2 tournament management and hosting application that enables you to easily host tournaments without worrying about the techinical side of things.",
-        "link": "http://bracketsc2.andrewrattana.com",
-        "lightbox": false
-      }
-    },
-    {
-      "timeline": {
-        "description": "HTML5 Minimal todo list.",
-        "type": "web"
-      },
-      "modal": {
-        "image": "dragdrop.png",
-        "title": "Todo List Application",
-        "description": "A minimalistic todo list application that features drag and drop for setting priorities for your items.",
-        "link": "http://todolist.andrewrattana.com",
-        "lightbox": false
-      }
-    },
-    {
-      "timeline": {
-        "description": "Get the latest news, trends and happenings in music!",
+        "description": "Grocery App",
         "type": "design"
       },
       "modal": {
-        "image": "musicsite.jpg",
-        "title": "MusicSky",
-        "description": "A concept website I designed for the latest trends and news in music, focusing on clean and modern design trends.",
-        "link": "img/musicsite-large.jpg",
-        "lightbox": true
-      }
-    },
-    {
-      "timeline": {
-        "description": "Attack of the retreating invisible cows!",
-        "type": "design"
-      },
-      "modal": {
-        "image": "cows.jpg",
-        "title": "The Cow Warriors",
-        "description": "A logo I designed for my team of 4 in a fierce corporate battle royale. These were printed on t-shirts and the title remained as Attack of the Retreating Invisible Cows!",
+        "image": "",
+        "title": "Metro",
+        "description": "<img class='lazy' data-original='img/metro/metro-main.jpg' /><p class='tac'><em>Grocery shopping is a pain and we all know it. Are you a dedicated metro shopper? This app will give you a great way of streamlining the process and ensuring that you don’t forget anything. While also giving you a convenient method of keeping you up to date with everything that happens inside Metro. With instant access to your air miles points, coupons, flyers, and recipes, you’ll always be on top of your grocery shopping.</em></p><h4>Problem</h4><p>Grocery shopping is a chore many of us have to do weekly. Whether it’s checking the flyer, available coupons, writing down all the products and estimating the total price, grocery shopping doesn’t have to be a pain anymore.</p><h4>Product Goal</h4><p>Providing a tool that allows you to streamline the process of grocery shopping as much as possible. Giving instant access to the multiple products we check in one device will clear the hassle of grocery shopping.</p><p class='tac'><em>This is an individual school project that involves app analysis, user flow, wireframes, visual mockups, and usage prototypes.</em></p><hr /><br /><h4>Sketches, wireframes and flow</h4><p>The main separator between a dedicated grocery app and a list on a piece of paper has to be the convenience it brings to the table. By giving instant access to the pain points in grocery shopping preparation such as flyers and coupons, it had to be one of the main priorities. After analyzing the priorities I started sketching many mockups for the layout and then checked how intuitive the user flow was by running the app by other students.</p><img class='lazy' data-original='img/metro/metro-sketches.jpg' /><img class='lazy' data-original='img/metro/metro-flow.jpg' /><h4>High fidelity design</h4><p>After deciding on the wireframes and user flow, I got started on the visual design work. The main priorities was ensuring that the design was clean, uncluttered and designing so that the user know exactly where everything was.</p><img class='lazy' data-original='img/metro/metro-1.png' /><img class='lazy' data-original='img/metro/metro-2.png' /><img class='lazy' data-original='img/metro/metro-3.png' /><img class='lazy' data-original='img/metro/metro-4.png' /><iframe src='https://player.vimeo.com/video/154428950?title=0&byline=0&portrait=0' height='441px' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
         "link": "",
         "lightbox": false
       }
     },
     {
       "timeline": {
-        "description": "Theme: Radiating Colours",
+        "description": "Interactive App for the ROM",
         "type": "design"
       },
       "modal": {
-        "image": "book1.jpg",
-        "title": "Student Handbook 2012",
-        "description": "I made a design for the Student Handbook 2012 competition at my community college, unfortunately it ended in 2nd place.",
-        "link": "img/book1-large.jpg",
-        "lightbox": true
-      }
-    },
-    {
-      "timeline": {
-        "description": "Theme: Mobile Apps",
-        "type": "design"
-      },
-      "modal": {
-        "image": "book2.jpg",
-        "title": "Student Handbook 2013",
-        "description": "I made a design for the Student Handbook 2013 competition at my community college, unfortunately it ended in 2nd place... again.",
-        "link": "img/book2-large.jpg",
-        "lightbox": true
-      }
-    },
-    {
-      "timeline": {
-        "description": "Theme: Game On",
-        "type": "design"
-      },
-      "modal": {
-        "image": "book3.jpg",
-        "title": "Student Handbook 2014",
-        "description": "I made a design for the Student Handbook 2014 competition at my community college, unfortunately this one didn't place, looking back I think a warrior holding two giant axes probably wasn't a good idea...",
-        "link": "img/book3-large.jpg",
-        "lightbox": true
-      }
-    },
-    {
-      "timeline": {
-        "description": "A report cover page about user application data and statistics",
-        "type": "design"
-      },
-      "modal": {
-        "image": "enduser.jpg",
-        "title": "End User Report",
-        "description": "The cover page for a report I designed for <a href='http://www.infotech.com'>Info-Tech Research Group</a> for corporations to measure how well their users are managing applications",
-        "link": "img/enduser-large.jpg",
-        "lightbox": true
-      }
-    },
-    {
-      "timeline": {
-        "description": "The future of car HUDs?",
-        "type": "design"
-      },
-      "modal": {
-        "image": "hud.png",
-        "title": "Car Dashboard HUD",
-        "description": "A concept design I created of a futuristic car's heads up display. Focusing heavily on sci-fi interfaces.",
+        "image": "",
+        "title": "ROM",
+        "description": "<img class='lazy' data-original='img/rom/rom-main.jpg' /><p class='tac'><em>ROM is a concept app that is held inside the ROM museum for individuals to interact with and gain a deeper connection with the content displayed.</em></p><h4>Problem</h4><p>Children and students touring museums can get quite bored of just simply viewing museum pieces. Providing a tool that allows them to interact with the content will allow them to gain higher satisfaction and a more memorable experience throughout the museum. </p><h4>Product Goal</h4><p>ROM bridges the gap between students and content so that they can interact with history, gain a deeper understanding to the pieces, and improve the overall experience of the museum.</p><p class='tac'><em>This is an individual school project that involves app analysis, user flow, wireframes, visual mockups, and usage prototypes.</em></p><hr /><br /><h4>Sketches, wireframes and flow</h4><p>After analyzing the type of information that needed to be communicated, I started off with multiple sketches to get concepts on paper. Afterwards from understanding the layout of the application I moved on to the user flow and wireframes. From letting other students run through the wireframes I noticed that the flow was not as intuitive as I originally thought. This feedback helped tremendously to ensure I fixed the issues and continue in the right direction.</p><img class='lazy' data-original='img/rom/rom-sketch1.jpg' /><img class='lazy' data-original='img/rom/rom-sketch2.jpg' /><img class='lazy' data-original='img/rom/rom-wireframe.jpg' /><h4>High fidelity design</h4><p>After finishing up the wireframes and user flow, I began starting on the visual design. Ensuring that the look and feel resembled that of a museum while keeping the layout clean was a challenging task. In the end I felt like I could’ve done more with this app, but with the time constraints I had to settle with this version.</p><img class='lazy' data-original='img/rom/rom-1.png' /><img class='lazy' data-original='img/rom/rom-2.png' /><img class='lazy' data-original='img/rom/rom-3.png' /><iframe src='https://player.vimeo.com/video/154429844?title=0&byline=0&portrait=0' height='441' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
         "link": "",
         "lightbox": false
       }
     },
     {
       "timeline": {
-        "description": "A modern and minimalistic music player.",
-        "type": "design"
+        "description": "Industrial Design",
+        "type": "industrial"
       },
       "modal": {
-        "image": "music.jpg",
-        "title": "Music Player",
-        "description": "A concept design I created of a music player application.",
+        "image": "",
+        "title": "Chess Set",
+        "description": "<p class='tac'><em>Chess is said to have been invented over 1500 years ago and as generations passed, so did the style of how chess was played. Although chess has stemmed out all over the world, it still upholds its one most valuable property, that chess was originally created for war strategists, as a way to predict war movements of the opposing side and devise strategies that increase their chances of attaining victory.</em></p><p class='tac'><em>This is an individual school project that involves product research, idea sketching and exploration, 3d modelling, composition and rendering, and rapid 3d prototyping.</em></p><hr /><br /><h4>Research</h4><p>The first step of any design project is research. In the case of a chess set the designer needs to know: how many chess pieces are required, how each piece differs from one another, and the standard piece design. Custom chess sets are generally created with the standard chess set in mind. The standard modern chess set has a pawn, queen, king, bishop, knight, and rook.</p><h4>Concepts and sketching</h4><p>Designing a completely unique chess set is quite difficult as you need to keep within the standards of the peice. If you design something radically different, users will have difficulty figuring out which piece is which. While designing my set I made sure to stick to one theme. I made sure the chess pieces look like they belong together, as if they complement each other and look complete as a set.</p><img class='lazy' data-original='img/chess/chess-sketch.jpg' /><h4>3D Modelling / CAD</h4><p>After designing all the pieces, I used the program Autodesk Alias to create my pieces in 3D.</p><img class='lazy' data-original='img/chess/chess-2.jpg' /><img class='lazy' data-original='img/chess/chess-3.jpg' /><img class='lazy' data-original='img/chess/chess-4.jpg' /><h4>Final Renders</h4><p>Using the program Autodesk Show Case, I imported my models and set up my scene for a final render. After everything was in place I added some materials to my models to make them more interesting.</p><img class='lazy' data-original='img/chess/chess-5.jpg' /><h4>3D Printing</h4><p>Afterwards I was able to print out the pieces using rapid 3D prototyping. One of the key things about 3d printing is ensuring that your model has no flaws within its surfaces.</p><img class='lazy' data-original='img/chess/chess-6.jpg' /><img class='lazy' data-original='img/chess/chess-7.jpg' /><h4>Conclusion</h4><p>I think the model of each piece complement one another and are well distinguished from each other. This design set looks complete and the pieces look like they belong together. So there are no aspects to which I would change, and I am fairly happy with the outcome of this project.</p>",
         "link": "",
         "lightbox": false
       }
     },
     {
       "timeline": {
-        "description": "A super minimalistic media player.",
-        "type": "design"
+        "description": "Self booklet",
+        "type": "print"
       },
       "modal": {
-        "image": "movie.jpg",
-        "title": "Media Player",
-        "description": "A concept design I created of a media player application. Aimed to be extremely minimal and only have the required tools for playing any type of media.",
+        "image": "",
+        "title": "Portfolio Discovery",
+        "description": "<img class='lazy' data-original='img/booklet/book-main.jpg' /><p class='tac'><em>Self - A person or thing referred to with respect to complete individuality.</em></p><p>This book is a brief story about the process of my portfolio. It is an introduction for who I am, how I work, and how I think. My personal journey to creating my digital identity and my online portfolio.</p><h4>Research and inspiration</h4><p>I’m heavily inspired by all the great designers from facebook, apple, metalabs, dropbox, etc. The list goes on forever. Overall I've noticed that minimal and straight to the point design is and will always be timeless, which is why minimalism has played the largest role in the theme I choose for this book.</p><h4>Sketching and exploration</h4><p>I first started out with a table of content to help get me going. Afterwards I simply started sketching out layouts and designs for each of the pages.</p><img class='lazy' data-original='img/booklet/book-sketch.jpg' /><h4>High fidelity design</h4><p>After wire framing out the initial layouts I proceeded to work on the high fidelity designs. This included making icons and writing about my design decisions. The priority here was about intention as nothing was just randomly placed for no reason.</p><img class='lazy' data-original='img/booklet/book-1.jpg' /><img class='lazy' data-original='img/booklet/book-2.jpg' /><img class='lazy' data-original='img/booklet/book-3.jpg' /><img class='lazy' data-original='img/booklet/book-4.jpg' /><img class='lazy' data-original='img/booklet/book-6.jpg' /><img class='lazy' data-original='img/booklet/book-5.jpg' />",
         "link": "",
         "lightbox": false
       }
