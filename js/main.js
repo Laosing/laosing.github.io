@@ -25,7 +25,6 @@ var Portfolio = function() {
     _checkout.click(function(event) {
       event.preventDefault();
       self.open();
-      _body.addClass('open-work');
     });
 
     _close.add('.bg').click(function(event) {
@@ -36,7 +35,6 @@ var Portfolio = function() {
     $('.about-me').click(function(event) {
       event.preventDefault();
       self.aboutOpen();
-      _body.addClass('open-about');
     });
 
     $('.about-close').click(function(event) {
@@ -58,6 +56,8 @@ var Portfolio = function() {
   this.open = function() {
     $('.bg').show();
 
+    _body.addClass('open-work');
+
     var x = this.checkMobile() ? '-100%' : '-30%';
 
     _main.velocity({
@@ -76,9 +76,6 @@ var Portfolio = function() {
   this.close = function() {
     $('.bg').hide();
 
-    if(!_body.hasClass('open-work')) return;
-    _body.removeClass('open-work');
-
     if(this.checkMobile() && _work.hasClass('open')) {
       this.hide(0);
 
@@ -88,6 +85,9 @@ var Portfolio = function() {
 
       return;
     }
+
+    if(!_body.hasClass('open-work')) return;
+    _body.removeClass('open-work');
 
     _work.velocity('fadeOut', 'normal', function() {
       _main.velocity({
@@ -110,6 +110,7 @@ var Portfolio = function() {
 
   this.aboutOpen = function() {
     setOverflow(true, [_body, _about]);
+    _body.addClass('open-about');
 
     if(this.checkMobile()) {
       _about
@@ -201,27 +202,49 @@ var Portfolio = function() {
     var lastIndex = this.timelineArray.length - 1;
 
     this.timelineArray.each(function(index, value) {
-      $(value).click(function() {
-        var el = $(self.workArray[index]);
+      var el = $(self.workArray[index]);
 
+      $(value).click(function() {
         self.mainLogic(el, $(this));
-        $("img.lazy").trigger("first" + index);
+
+        triggerFirstImageLoad(index);
       });
+
+      initLazyLoad(el);
     });
 
     $('.next').click(function(event) {
       event.preventDefault();
       self.nextLogic($(this));
+
+      var index = $(this).closest('.work-piece').data('work');
+      index = index <= self.workArray.length - 1 ? index + 1 : 0;
+      triggerFirstImageLoad(index);
     });
 
     $('.prev').click(function(event) {
       event.preventDefault();
       self.prevLogic($(this));
+
+      var index = $(this).closest('.work-piece').data('work');
+      index = index === 0 ? self.workArray.length - 1 : index - 1 ;
+      triggerFirstImageLoad(index);
     });
+
+    function initLazyLoad(el) {
+      el.find("img.lazy").lazyload({
+        effect: 'fadeIn',
+        container: el,
+      });
+    }
+
+    function triggerFirstImageLoad(index) {
+      $("img.lazy").trigger("first" + index);
+    }
   }
 
   this.prevLogic = function(el) {
-    var el = el.parent().parent(),
+    var el = el.closest('.work-piece'),
         index = el.data('work'),
         prev = el.prev(),
         last = self.timelineArray.length - 1,
@@ -235,7 +258,7 @@ var Portfolio = function() {
   }
 
   this.nextLogic = function(el) {
-    var el = el.parent().parent(),
+    var el = el.closest('.work-piece'),
         index = el.data('work'),
         next = el.next(),
         timelineElIndex = index < self.workArray.length - 1 ? index + 1 : 0,
@@ -274,8 +297,6 @@ var Portfolio = function() {
         left: '0',
         display: 'block'
       }, 'normal', 'ease');
-
-    showImages(el);
   }
 
   this.hide = function(value, cb) {
@@ -306,8 +327,6 @@ var Portfolio = function() {
           left: '0'
         }, 'normal', 'ease');
       });
-
-      showImages(el);
   }
 
   this.prev = function(el, timelineEl) {
@@ -323,16 +342,7 @@ var Portfolio = function() {
         .velocity({
           left: '0',
         }, 'normal', 'ease');
-
-        showImages(el);
       });
-  }
-
-  function showImages(el) {
-    el.find('img.lazy').lazyload({
-      effect : "fadeIn",
-      container: el,
-    })
   }
 
   function setOverflow(prop, el) {
