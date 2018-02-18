@@ -178,11 +178,18 @@ hr
   width: 100%
   position: relative
   top: 30%
+  text-align: center
   transform: translateY(-50%)
   +breakpoint($break-mobile)
     transform: none
     top: auto
     margin-top: 1em
+  hr
+    display: inline-block
+    width: 100%
+    max-width: 300px
+    background: white
+    opacity: .25
   .adjectives
     position: relative
     font-weight: bold
@@ -460,17 +467,13 @@ hr
       border: 1px solid $primary
 
 .logo
-  position: absolute
-  top: 2em
-  right: 2em
-  opacity: 1
   +breakpoint($break-mobile)
     right: .5em
     top: initial
     left: initial
     bottom: .2em
   svg
-    width: 70px
+    width: 150px
     fill: $white
   path
     fill: inherit
