@@ -100,7 +100,11 @@ hr
   bottom: 0
   width: 30%
   background: $black
-  overflow-y: scroll
+  overflow-y: auto
+  +breakpoint($break-mobile)
+    width: 100%
+
+.side, .timeline li
   &:before
     position: absolute
     left: 24px
@@ -112,8 +116,6 @@ hr
     margin-left: -3px
     background: $black-dark
     z-index: 5
-  +breakpoint($break-mobile)
-    width: 100%
 
 .main
   position: absolute
@@ -183,13 +185,16 @@ hr
   +breakpoint($break-mobile)
     transform: none
     top: auto
-    margin-top: 1em
+    padding: 1em 3em
   hr
-    display: inline-block
+    display: block
     width: 100%
     max-width: 300px
-    background: white
+    margin: 2em auto
     opacity: .25
+    border-top: 2px solid white;
+    +breakpoint($break-mobile)
+      display: none
   .adjectives
     position: relative
     font-weight: bold
@@ -467,13 +472,10 @@ hr
       border: 1px solid $primary
 
 .logo
+  display: inline-block
+  width: 150px
   +breakpoint($break-mobile)
-    right: .5em
-    top: initial
-    left: initial
-    bottom: .2em
   svg
-    width: 150px
     fill: $white
   path
     fill: inherit
@@ -485,6 +487,9 @@ hr
   padding: 1em
   width: 100%
   max-width: 600px
+  +breakpoint($break-mobile)
+    margin: 0 auto
+    padding: 0
 
 .about-info
   text-align: center
@@ -557,32 +562,9 @@ hr
   transform: translateY(-50%)
   iframe
     max-width: 810px
-    width: 100%
-
-.demo-button
-  color: white
-  position: absolute
-  z-index: 99999999999
-  appearance: none
-  border: none
-  background: $white
-  font-size: 60px
-  line-height: 1
-  width: 100px
-  height: 100px
-  border-radius: 50%
-  opacity: .75
-  right: 20%
-  top: 35%
-  left: 70%
-  +breakpoint($break-mobile)
-    position: initial
-    margin: .5em
-  &:hover
-    opacity: 1
-  &:before
-    padding-left: 5px
-    color: $black
+    width: 80%
+    +breakpoint($break-mobile)
+      height: auto
 
 .bg
   position: absolute
