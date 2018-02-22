@@ -1,4 +1,4 @@
-(function($) {
+(function() {
 
 "use strict";
 
@@ -20,40 +20,63 @@ var Portfolio = function() {
   this.json = null;
 
   this.init = function() {
-    this.setHtml();
+    page('/', function() {
+      self.aboutClose();
+      self.close();
+    });
+    page('/about', function() {
+      self.close();
+      self.aboutOpen();
+    });
+    page('/work', function() {
+      self.aboutClose();
+      self.hide(0);
+      self.open();
+    });
+    page('/work/:title', function(ctx, next) {
+      self.aboutClose();
+      var $active = $('#timeline').find(`li[data-timeline-title=${ctx.params.title}]`);
+      if (_body.hasClass('open-work') && $active.hasClass('active')) return;
+      self.open(function() {
+        let $timelinepiece = $('#timeline').find(`li[data-timeline-title=${ctx.params.title}]`);
+        let $workpiece = $('#work-container').find(`li[data-work-title=${ctx.params.title}]`);
+        let index = $workpiece.data('work');
+        self.mainLogic($workpiece, $timelinepiece);
+      });
+    });
+    page({
+      hashbang:true,
+    });
 
     _checkout.click(function(event) {
       event.preventDefault();
-      self.open();
+      page('/work');
     });
 
     _close.add('.bg').click(function(event) {
       event.preventDefault();
-      self.close();
+      page('/');
     });
 
     $('#about-me').click(function(event) {
       event.preventDefault();
-      self.aboutOpen();
+      page('/about');
     });
 
     $('.about-close').click(function(event) {
       event.preventDefault();
-      self.aboutClose();
+      page('/');
     });
 
     $(document).keydown(function(e) {
       if(e.keyCode == 27) {
-        if(_body.hasClass('open-about')) {
-          self.aboutClose();
-        } else if (_body.hasClass('open-work')) {
-          self.close();
-        }
+        if(_body.hasClass('open-about') || _body.hasClass('open-work'))
+          page('/');
       }
     });
   }
 
-  this.open = function() {
+  this.open = function(cb) {
     $('.bg').show();
 
     _body.addClass('open-work');
@@ -70,6 +93,8 @@ var Portfolio = function() {
       } else {
         _work.velocity('fadeIn', 'normal');
       }
+
+      if(typeof cb === 'function') cb();
     });
   }
 
@@ -174,6 +199,11 @@ var Portfolio = function() {
       .done(function(data) {
         self.json = data;
 
+        // Change input to hyphen-case
+        Handlebars.registerHelper('hyphencase', function(title) {
+          return title.replace(/\W+/g, '-').toLowerCase();
+        });
+
         var workSource = $('#work-template').html(),
             workTemplate = Handlebars.compile(workSource);
 
@@ -190,11 +220,17 @@ var Portfolio = function() {
 
         self.setLogic();
 
+        // Set a custom event (immediately load) on the first image of each work piece
+        // I trigger this event when the user clicks on the sidebar link
         $('.work-piece').each(function(index) {
           $(this).find('img.lazy:first').lazyload({
             event: 'first' + index,
           });
         });
+      })
+      .done(function() {
+        // After setting the html, initialize the events
+        self.init();
       });
   }
 
@@ -204,13 +240,15 @@ var Portfolio = function() {
     this.timelineArray.each(function(index, value) {
       var el = $(self.workArray[index]);
 
-      $(value).click(function() {
-        self.mainLogic(el, $(this));
-
-        triggerFirstImageLoad(index);
+      el.find("img.lazy").lazyload({
+        effect: 'fadeIn',
+        container: el,
       });
 
-      initLazyLoad(el);
+      $(value).click(function() {
+        let linkData = $(this).data('timeline-title');
+        self.mainLogic(el, $(this), linkData);
+      });
     });
 
     $('.next').click(function(event) {
@@ -219,7 +257,6 @@ var Portfolio = function() {
 
       var index = $(this).closest('.work-piece').data('work');
       index = index <= self.workArray.length - 1 ? index + 1 : 0;
-      triggerFirstImageLoad(index);
     });
 
     $('.prev').click(function(event) {
@@ -227,20 +264,8 @@ var Portfolio = function() {
       self.prevLogic($(this));
 
       var index = $(this).closest('.work-piece').data('work');
-      index = index === 0 ? self.workArray.length - 1 : index - 1 ;
-      triggerFirstImageLoad(index);
+      index = index === 0 ? self.workArray.length - 1 : index - 1;
     });
-
-    function initLazyLoad(el) {
-      el.find("img.lazy").lazyload({
-        effect: 'fadeIn',
-        container: el,
-      });
-    }
-
-    function triggerFirstImageLoad(index) {
-      $("img.lazy").trigger("first" + index);
-    }
   }
 
   this.prevLogic = function(el) {
@@ -270,23 +295,26 @@ var Portfolio = function() {
     self.next(next, timelineEl);
   }
 
-  this.mainLogic = function(el, timelineEl) {
-    if(el.hasClass('active') || $('.velocity-animating').length) {
+  this.mainLogic = function(el, timelineEl, linkData) {
+    if(el.hasClass('active')) {
       return;
     } else if($('.active').length) {
-      this.next(el, timelineEl);
+      this.next(el, timelineEl, linkData);
     } else {
       _helper.velocity('fadeOut', 'fast', function() {
-        self.show(el, timelineEl);
+        self.show(el, timelineEl, linkData);
       });
     }
 
-   if(this.checkMobile()) {
+    if(this.checkMobile()) {
       _work.velocity('fadeIn');
     }
   }
 
-  this.show = function(el, timelineEl) {
+  // Show first work animation.
+  this.show = function(el, timelineEl, linkData) {
+    el.find('img.lazy:first-child').trigger(`first${el.data('work')}`);
+
     el.addClass('active');
     timelineEl.addClass('active');
     _work.addClass('open');
@@ -296,9 +324,12 @@ var Portfolio = function() {
       .velocity({
         left: '0',
         display: 'block'
-      }, 'normal', 'ease');
+      }, 'normal', 'ease', function() {
+        if (linkData) page(`/work/${linkData}`);
+      });
   }
 
+  // Hide animation logic
   this.hide = function(value, cb) {
     $('#work-container .active').velocity({
       left: value,
@@ -315,18 +346,23 @@ var Portfolio = function() {
     });
   }
 
-  this.next = function(el, timelineEl) {
-      self.hide('-200%', function() {
-        el.addClass('active');
-        timelineEl.addClass('active');
-        _work.addClass('open');
+  // Hide current work and then animate the next work animation.
+  this.next = function(el, timelineEl, linkData) {
+    el.find('img.lazy:first-child').trigger(`first${el.data('work')}`);
 
-      el
-        .show()
-        .velocity({
-          left: '0'
-        }, 'normal', 'ease');
+    self.hide('-200%', function() {
+      el.addClass('active');
+      timelineEl.addClass('active');
+      _work.addClass('open');
+
+    el
+      .show()
+      .velocity({
+        left: '0'
+      }, 'normal', 'ease', function() {
+        if (linkData) page(`/work/${linkData}`);
       });
+    });
   }
 
   this.prev = function(el, timelineEl) {
@@ -360,6 +396,6 @@ var Portfolio = function() {
 };
 
 var portfolio = new Portfolio();
-portfolio.init();
+portfolio.setHtml();
 
-})(jQuery);
+})();

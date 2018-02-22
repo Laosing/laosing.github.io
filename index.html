@@ -105,7 +105,7 @@
     <ul class="work-container" id="work-container">
     <script id="work-template" type="text/x-handlebars-template">
     {{#each work}}
-      <li class="work-piece" data-work="{{@index}}">
+      <li class="work-piece" data-work="{{@index}}" data-work-title="{{hyphencase modal.title}}">
         <div class="work-info">
           <h3>{{modal.title}}</h3>
           <div>{{{modal.description}}}</div>
@@ -126,7 +126,7 @@
     <ul class="timeline" id="timeline">
     <script id="list-template" type="text/x-handlebars-template">
     {{#each work}}
-      <li>
+      <li data-timeline-title="{{hyphencase modal.title}}">
         <div class="direction-r">
           <div class="flag {{timeline.type}}">{{modal.title}}</div>
           <div class="desc">{{timeline.description}}</div>
