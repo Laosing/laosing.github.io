@@ -4,20 +4,17 @@
 
 var Portfolio = function() {
   var self = this,
-      _checkout = $('#checkout'),
       _main = $('.main'),
       _body = $('body'),
       _work = $('.work'),
       _close = $('.close'),
       _side = $('.side'),
-      _loader = $('.load'),
       _helper = $('.helper'),
       _about = $('.about'),
+      _workContainer = $('#work-container'),
+      _timeline = $('#timeline'),
+      _bg = $('.bg'),
       _mediaMobile = '600px';
-
-  this.timelineArray = null;
-  this.workArray = null;
-  this.json = null;
 
   this.init = function() {
     page('/', function() {
@@ -30,32 +27,41 @@ var Portfolio = function() {
     });
     page('/work', function() {
       self.aboutClose();
-      self.hide(0);
-      self.open();
+      if(self.checkMobile()) {
+        self.close();
+      } else {
+        self.hide(0);
+      }
+      if (!_body.hasClass('open-work')) {
+        self.open();
+      }
     });
-    page('/work/:title', function(ctx, next) {
+    page('/work/:title', function(ctx) {
       self.aboutClose();
-      var $active = $('#timeline').find(`li[data-timeline-title=${ctx.params.title}]`);
+      let $active = _timeline.find(`li[data-timeline-title=${ctx.params.title}]`);
       if (_body.hasClass('open-work') && $active.hasClass('active')) return;
       self.open(function() {
-        let $timelinepiece = $('#timeline').find(`li[data-timeline-title=${ctx.params.title}]`);
-        let $workpiece = $('#work-container').find(`li[data-work-title=${ctx.params.title}]`);
-        let index = $workpiece.data('work');
-        self.mainLogic($workpiece, $timelinepiece);
+        let $timelinepiece = _timeline.find(`li[data-timeline-title=${ctx.params.title}]`);
+        let $workpiece = _workContainer.find(`li[data-work-title=${ctx.params.title}]`);
+        self.next('next', $workpiece, $timelinepiece);
       });
     });
     page({
       hashbang:true,
     });
 
-    _checkout.click(function(event) {
+    $('#checkout').click(function(event) {
       event.preventDefault();
       page('/work');
     });
 
-    _close.add('.bg').click(function(event) {
+    _close.add(_bg).click(function(event) {
       event.preventDefault();
-      page('/');
+      if(self.checkMobile() && _work.hasClass('open')) {
+        page('/work');
+      } else {
+        page('/');
+      }
     });
 
     $('#about-me').click(function(event) {
@@ -92,20 +98,20 @@ var Portfolio = function() {
   }
 
   this.open = function(cb) {
-    $('.bg').show();
+    if(!self.checkMobile()) _bg.show();
+
+    if (_body.hasClass('open-work')) {
+      if(typeof cb === 'function') cb();
+      return;
+    }
 
     _body.addClass('open-work');
-
-    var x = this.checkMobile() ? '-100%' : '-30%';
-
     _main.velocity({
-      left: x
+      left: this.checkMobile() ? '-100%' : '-30%'
     }, 'normal', 'ease', function() {
       _close.velocity('fadeIn', 'fast');
 
-      if(self.checkMobile()) {
-        return;
-      } else {
+      if(!self.checkMobile()) {
         _work.velocity('fadeIn', 'normal');
       }
 
@@ -114,10 +120,12 @@ var Portfolio = function() {
   }
 
   this.close = function() {
-    $('.bg').hide();
+    _bg.velocity('fadeOut', function() {
+      $(this).removeAttr('style');
+    });
 
     if(this.checkMobile() && _work.hasClass('open')) {
-      this.hide(0);
+      self.hide(0);
 
       _work
         .velocity('fadeOut')
@@ -133,7 +141,7 @@ var Portfolio = function() {
       _main.velocity({
         left: ''
       }, 'normal', 'ease', function() {
-        $('#work-container li.active')
+        _workContainer.find('li.active')
           .removeClass('active')
           .removeAttr('style')
           .hide();
@@ -199,11 +207,8 @@ var Portfolio = function() {
     });
   }
 
-  this.checkMobile = function(cb) {
+  this.checkMobile = function() {
     if(Modernizr.mq('only screen and (max-width: ' + _mediaMobile + ')')) {
-      if(typeof cb === 'function')
-        cb();
-
       return true;
     }
     return false;
@@ -222,16 +227,16 @@ var Portfolio = function() {
         var workSource = $('#work-template').html(),
             workTemplate = Handlebars.compile(workSource);
 
-        $('#work-container').html(workTemplate(data));
+        _workContainer.html(workTemplate(data));
 
         var listSource = $('#list-template').html(),
             listTemplate = Handlebars.compile(listSource);
 
-        $('#timeline').html(listTemplate(data));
+        _timeline.html(listTemplate(data));
       })
       .done(function() {
-        self.timelineArray = $('#timeline li');
-        self.workArray = $('#work-container li');
+        self.timelineArray = _timeline.find('li');
+        self.workArray = _workContainer.find('li');
 
         self.setLogic();
 
@@ -261,94 +266,49 @@ var Portfolio = function() {
       });
 
       $(value).click(function() {
-        let linkData = $(this).data('timeline-title');
-        self.mainLogic(el, $(this), linkData);
+        // Don't do anything if something is currently animating.
+        // Fixes bug when you click on multiple items at the same time.
+        if (!$('.velocity-animating').length) self.next('next', el, $(this), true);
       });
     });
 
     $('.next').click(function(event) {
       event.preventDefault();
-      self.nextLogic($(this));
-
-      var index = $(this).closest('.work-piece').data('work');
-      index = index <= self.workArray.length - 1 ? index + 1 : 0;
+      self.nextLogic($(this), 'next');
     });
 
     $('.prev').click(function(event) {
       event.preventDefault();
-      self.prevLogic($(this));
-
-      var index = $(this).closest('.work-piece').data('work');
-      index = index === 0 ? self.workArray.length - 1 : index - 1;
+      self.nextLogic($(this), 'prev');
     });
   }
 
-  this.prevLogic = function(el) {
-    var el = el.closest('.work-piece'),
-        index = el.data('work'),
-        prev = el.prev(),
-        last = self.timelineArray.length - 1,
-        timelineElIndex = index !== 0 ? index - 1 : self.workArray.length - 1,
-        timelineEl = $($('#timeline li')[timelineElIndex]);
+  this.nextLogic = function(el, direction) {
+    el = el.closest('.work-piece');
+    let index = el.data('work');
+    let last = self.timelineArray.length - 1;
+    let nextElement = direction === 'next' ? el.next() : el.prev();
+    let nextTimelineElIndex = index < self.workArray.length - 1 ? index + 1 : 0;
+    let prevTimelineElIndex = index !== 0 ? index - 1 : self.workArray.length - 1;
+    let timelineElIndex = direction === 'next' ? nextTimelineElIndex : prevTimelineElIndex;
+    let timelineEl = $(_timeline.find('li')[timelineElIndex]);
 
-    if(index === 0)
-      prev = $('#work-container li[data-work="' + last + '"]');
+    // Going next on the last workpiece, go to the first workpiece
+    if(direction === 'next' && index === self.workArray.length - 1)
+      nextElement = _workContainer.find('li[data-work="0"]');
 
-    self.prev(prev, timelineEl);
+    // Going previous on the first workpiece, go to the last workpiece
+    if(direction === 'prev' && index === 0)
+      nextElement = _workContainer.find('li[data-work="' + last + '"]');
+
+    self.next(direction, nextElement, timelineEl, true);
   }
 
-  this.nextLogic = function(el) {
-    var el = el.closest('.work-piece'),
-        index = el.data('work'),
-        next = el.next(),
-        timelineElIndex = index < self.workArray.length - 1 ? index + 1 : 0,
-        timelineEl = $($('#timeline li')[timelineElIndex]);
-
-    if(index === self.workArray.length - 1)
-      next = $('#work-container li[data-work="0"]');
-
-    self.next(next, timelineEl);
-  }
-
-  this.mainLogic = function(el, timelineEl, linkData) {
-    if(el.hasClass('active')) {
-      return;
-    } else if($('.active').length) {
-      this.next(el, timelineEl, linkData);
-    } else {
-      _helper.velocity('fadeOut', 'fast', function() {
-        self.show(el, timelineEl, linkData);
-      });
-    }
-
-    if(this.checkMobile()) {
-      _work.velocity('fadeIn');
-    }
-  }
-
-  // Show first work animation.
-  this.show = function(el, timelineEl, linkData) {
-    el.find('img.lazy:first-child').trigger(`first${el.data('work')}`);
-
-    el.addClass('active');
-    timelineEl.addClass('active');
-    _work.addClass('open');
-
-    el
-      .show()
-      .velocity({
-        left: '0',
-        display: 'block'
-      }, 'normal', 'ease', function() {
-        if (linkData) page(`/work/${linkData}`);
-      });
-  }
-
-  // Hide animation logic
+  // Hide animation for whatever is currently active
   this.hide = function(value, cb) {
-    $('#work-container .active').velocity({
+    _workContainer.find('.active').velocity({
       left: value,
-      opacity: 0
+      opacity: 1
     }, 'normal', 'ease', function() {
       $('.active')
         .removeAttr('style')
@@ -361,39 +321,43 @@ var Portfolio = function() {
     });
   }
 
-  // Hide current work and then animate the next work animation.
-  this.next = function(el, timelineEl, linkData) {
+  // Animate the next active workpiece in
+  this.next = function(direction, el, timelineEl, setURL) {
+    if (el.hasClass('active')) return;
+
+    if (this.checkMobile()) {
+      _work.velocity('fadeIn', { duration: 0 });
+      _helper.hide();
+    }
+
     el.find('img.lazy:first-child').trigger(`first${el.data('work')}`);
 
-    self.hide('-200%', function() {
+    if ($('.active').length) {
+      let directionLeft = direction === 'next' ? '-200%' : '100%';
+      self.hide(directionLeft, animateIn);
+    } else {
+      animateIn();
+    }
+
+    function animateIn() {
       el.addClass('active');
       timelineEl.addClass('active');
       _work.addClass('open');
 
-    el
-      .show()
-      .velocity({
-        left: '0'
-      }, 'normal', 'ease', function() {
-        if (linkData) page(`/work/${linkData}`);
-      });
-    });
-  }
-
-  this.prev = function(el, timelineEl) {
-      self.hide('100%', function() {
-        el.addClass('active');
-        timelineEl.addClass('active');
+      if (direction === 'prev') {
+        el.velocity({
+          left: '-200%',
+        }, 0);
+      }
 
       el
-        .velocity({
-          left: '-200%',
-        }, 0)
         .show()
         .velocity({
-          left: '0',
-        }, 'normal', 'ease');
-      });
+          left: 0
+        }, 'normal', 'ease', function() {
+          if (setURL) page(`/work/${el.data('work-title')}`);
+        });
+    }
   }
 
   function setOverflow(prop, el) {
