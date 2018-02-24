@@ -74,6 +74,21 @@ var Portfolio = function() {
           page('/');
       }
     });
+
+    // Tippy.js tooltips
+    tippy('[title]');
+
+    // Scroll to top button
+    $('.backtotop').on('click', function(event) {
+      event.preventDefault();
+      let $container = $(this).parents('.work-piece.active');
+      $(this).velocity('scroll', {
+        container: $container,
+        duration: 2000,
+        offset: -$container[0].scrollHeight,
+        easing: 'easeInOutCubic'
+      });
+    });
   }
 
   this.open = function(cb) {

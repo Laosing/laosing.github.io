@@ -304,11 +304,12 @@ hr
 .buttons
   padding: 1em
 
-.prev, .next
+.prev, .next, .backtotop
   padding: 0
   z-index: 10
   &.ion-1
-    line-height: 2.5
+    font-size: 1.4em
+    line-height: 1.8
 
 .prev
   left: 1em
@@ -316,7 +317,10 @@ hr
 .next
   right: 1em
 
-.close, .prev, .next
+.backtotop.button
+  display: inline-block
+
+.close, .prev, .next, .backtotop
   width: 44px
   height: 44px
   display: block
@@ -441,11 +445,14 @@ hr
 
 .about-close
   color: $white
-  position: absolute
-  right: 1em
+  position: fixed
+  right: 2em
   top: 1em
   display: block
+  padding: 0 .8em
   +font-size(20)
+  background: black
+  border-radius: 50%
 
 .social
   position: absolute
@@ -610,6 +617,9 @@ hr
       opacity: 0
   100%
       opacity: .5
+
+.tippy-tooltip
+  font-size: .9em !important
 
 /* Color Labels
    ----------------------------- */
