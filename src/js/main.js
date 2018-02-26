@@ -1,5 +1,4 @@
 (function() {
-
 "use strict";
 
 var Portfolio = function() {
@@ -216,6 +215,7 @@ var Portfolio = function() {
 
   this.setHtml = function() {
     $.getJSON('./data/portfolio.json')
+      .fail(function() { alert("Sorry, this site is currently down. Please blame the developer and try again later. :("); })
       .done(function(data) {
         self.json = data;
 

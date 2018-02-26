@@ -7,11 +7,12 @@ $break-tablet: max-width 768px
 /* Imports
    ----------------------------- */
 
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,500,700)
 @import "./node_modules/breakpoint-sass/stylesheets/breakpoint"
 @import "partials/colors"
 @import "partials/helpers"
 @import "partials/normalize"
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,500,700)
+@import "partials/hover"
 
 /* HTML
    ----------------------------- */
@@ -39,17 +40,17 @@ ul, section, body
 
 a
   text-decoration: none
-  +link-colors($white, $primary)
+  // +link-colors($white, $primary)
   &:hover, &:focus
     text-decoration: none
 
 a, input
-  transition(all .2s ease)
+  transition: all .3s ease
 
 a, input, button, textarea, select
   &:active,
   &:focus
-    box-shadow(none)
+    box-shadow: none
     outline: none
 
 p
@@ -126,8 +127,8 @@ hr
   background: $black url('../img/3-dark2.jpg') top center no-repeat
   //+background-size(cover)
   z-index: 20
-  transition(transform .3s ease)
-  box-shadow(0 0 10px $black-darker)
+  transition: transform .3s ease
+  box-shadow: 0 0 10px $black-darker
   overflow: hidden
   +breakpoint($break-mobile)
     text-align: center
@@ -155,8 +156,13 @@ hr
   h4
     margin: 0 32px 8px
     font-size: 1.5em
+  iframe:not(.cp_embed_iframe)
+    height: 447px
   iframe
     width: 100%
+    margin: 1em auto
+    +breakpoint($break-mobile)
+      height: 56vw
   hr
     background: #EAEAEA
   img
@@ -170,10 +176,13 @@ hr
     em
       display: block
       padding: 1em 2em
-    a
-      color: $primary
-      &:hover
-        text-decoration: underline
+      +breakpoint($break-mobile)
+        padding: 0
+  a
+    color: $primary
+    &:hover
+      text-decoration: underline
+    @extend .fancy-hover
 
 .intro
   padding: 3em
@@ -258,7 +267,7 @@ hr
     background: $black-dark
     border-radius: 10px
     border: 2px solid $primary
-    box-shadow(0 0 0 2px $black-dark)
+    box-shadow: 0 0 0 3px #444
     z-index: 10
 
 .desc
@@ -503,13 +512,27 @@ hr
   text-align: center
 
 .about-picture
+  position: relative
   display: block
   margin: 0 auto
   width: 100px
   height: 100px
-  background: url('../img/avatar.jpg') center center no-repeat
+  background: url('../img/leo.jpg') center center no-repeat
   border-radius: 100%
   background-size: contain
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    width: 100px
+    height: 100px
+    background: url('../img/avatar.jpg') center center no-repeat
+    background-size: contain
+    border-radius: 100%
+    opacity: 1
+    transition: opacity 0.3s ease
+  &:hover:before
+    opacity: 0
 
 .about-name
   font-weight: normal
@@ -541,9 +564,7 @@ hr
       +font-size(11)
     a
       color: $white
-      border-bottom: 1px dotted $primary-darker
-      &:hover
-        color: $primary
+      @extend .fancy-hover
 
 .at:after
   content: '@'
