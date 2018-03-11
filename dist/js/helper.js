@@ -1,0 +1,1 @@
+"use strict";!function(){var e=document.querySelector(".helper"),t=document.querySelector(".side"),n="helper-active";t.addEventListener("mouseenter",function(){e.classList.add(n)}),t.addEventListener("mouseleave",function(){e.classList.remove(n)})}();

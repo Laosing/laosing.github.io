@@ -105,6 +105,7 @@ var Portfolio = function() {
     }
 
     _body.addClass('open-work');
+    _helper.addClass('helper-active');
     _main.velocity({
       left: this.checkMobile() ? '-100%' : '-30%'
     }, 'normal', 'ease', function() {

@@ -202,7 +202,7 @@ hr
     max-width: 300px
     margin: 2em auto
     opacity: .25
-    border-top: 2px solid white;
+    border-top: 2px solid white
     +breakpoint($break-mobile)
       display: none
   .adjectives
@@ -345,6 +345,9 @@ hr
   background: $white-lighter
   z-index: 30
   display: none
+  &:hover
+    color: $white
+    background: $primary
 
 .checklink
   width: auto
@@ -366,9 +369,18 @@ hr
 
 .helper
   position: absolute
+  padding: 7px 7px 1em
   right: 2em
   top: 20%
-  z-index: 30
+  z-index: 40
+  background: $black
+  border-radius: 25px
+  opacity: 0
+  transform: translate3d(120%, 0, 0)
+  transition: all .2s ease-in-out
+  &.helper-active
+    opacity: 1
+    transform: translate3d(0%, 0, 0)
 
 .helper-note
   display: block
@@ -395,7 +407,7 @@ hr
     width: 12px
     height: 12px
     background: transparent
-    border-width: 1px
+    border-width: 2px
     border-style: solid
     border-radius: 50%
 
@@ -461,6 +473,8 @@ hr
   +font-size(20)
   background: black
   border-radius: 50%
+  &:hover
+    background: $primary
 
 .social
   position: absolute
@@ -520,6 +534,17 @@ hr
   background: url('../img/leo.jpg') center center no-repeat
   border-radius: 100%
   background-size: contain
+  &:after
+    position: absolute
+    content: ''
+    height: 100%
+    width: 100%
+    top: 0%
+    left: 0%
+    border-radius: 50%
+    z-index: -1
+    box-shadow: 0 0 15px $primary
+    animation: glow-grow 2s ease-out infinite
   &:before
     content: ''
     position: absolute
@@ -532,6 +557,16 @@ hr
     opacity: 1
     transition: opacity 0.3s ease
   &:hover:before
+    opacity: 0
+
+@keyframes glow-grow
+  0%
+    opacity: 0
+    transform: scale(0)
+  70%
+    opacity: 1
+  100%
+    transform: scale(1.2)
     opacity: 0
 
 .about-name
@@ -610,6 +645,10 @@ hr
     position: initial
   .ion-heart
     color: red
+  a
+    color: $white
+    &:hover
+      color: $primary
 
 .typed-cursor
   opacity: .5
@@ -634,6 +673,7 @@ hr
   position: fixed
   width: 100%
   height: 100%
+  z-index: -1
 
 /* Color Labels
    ----------------------------- */
