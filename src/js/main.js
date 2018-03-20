@@ -43,6 +43,7 @@ var Portfolio = function() {
         let $timelinepiece = _timeline.find(`li[data-timeline-title=${ctx.params.title}]`);
         let $workpiece = _workContainer.find(`li[data-work-title=${ctx.params.title}]`);
         self.next('next', $workpiece, $timelinepiece);
+        _helper.removeClass('helper-active');
       });
     });
     page({
