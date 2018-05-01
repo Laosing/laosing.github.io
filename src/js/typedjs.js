@@ -1,7 +1,7 @@
 let typedjs = (() => {
 
   var typed = new Typed('.adjectives', {
-    strings: ['Designer', 'Developer', 'Problem Solver', 'Artist', 'Animator', 'Creator', 'Martial Artist', 'Badminton Player', 'Starcraft Gamer'],
+    strings: ['Web Designer', 'Web Developer', 'Graphic Designer', 'Artist', 'Animator', 'Martial Artist', 'Badminton Lover', 'SC2 Gamer'],
     typeSpeed: 80,
     backSpeed: 80,
     backDelay: 2000,
