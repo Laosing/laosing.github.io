@@ -1,1 +1,1 @@
-"use strict";var windowResize=($(window).resize($.debounce(250,function(e){var i=$(e.currentTarget).height(),r=i>450?i:450;$("#work-container, .main, .work, .side, .about, .bg").css("height",r)})),void $(window).resize());
+"use strict";var windowResize=($(window).resize($.debounce(250,function(e){var i=$(e.currentTarget).height(),r=450<i?i:450;$("#work-container, .main, .work, .side, .about, .bg").css("height",r)})),void $(window).resize());
