@@ -82,7 +82,25 @@ var Portfolio = function() {
     });
 
     // Tippy.js tooltips
-    tippy('[title]');
+    const tip = tippy('[title]');
+
+    tippy.browser.onUserInputChange = type => {
+      const method = type === 'touch' ? 'disable' : 'enable';
+      for (const tooltip of tip.tooltips) {
+        tooltip[method]();
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      for (const popper of document.querySelectorAll('.tippy-popper')) {
+        const instance = popper._tippy;
+
+        if (instance.state.visible) {
+          instance.popperInstance.disableEventListeners();
+          instance.hide();
+        }
+      }
+    });
 
     // Scroll to top button
     $('.backtotop').on('click', function(event) {

@@ -1,25 +1,5 @@
-const tip = tippy('[title]')
-
-tippy.browser.onUserInputChange = type => {
-  const method = type === 'touch' ? 'disable' : 'enable'
-  for (const tooltip of tip.tooltips) {
-    tooltip[method]()
-  }
-}
-
-window.addEventListener('scroll', () => {
-  for (const popper of document.querySelectorAll('.tippy-popper')) {
-    const instance = popper._tippy
-
-    if (instance.state.visible) {
-      instance.popperInstance.disableEventListeners()
-      instance.hide()
-    }
-  }
-});
-
-const template = document.querySelector('#template')
-const initialText = template.textContent
+const template = document.querySelector('#template');
+const initialText = template.textContent;
 
 const imageTip = tippy('.image-pop', {
   // animation: 'shift-toward',
@@ -58,4 +38,4 @@ const imageTip = tippy('.image-pop', {
       }
     }
   }
-})
+});
