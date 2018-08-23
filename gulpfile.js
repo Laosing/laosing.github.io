@@ -24,7 +24,7 @@ gulp.task( 'scripts', function () {
         .src( ['src/js/**/*.js', '!src/js/vendor/**/*.js'] )
         .pipe( $.plumber() )
         .pipe( $.babel( {
-            presets: ['es2015']
+            presets: ['env']
         } ) )
         .pipe( $.uglify() )
         .on('error', catchErr)
@@ -56,9 +56,10 @@ gulp.task( 'images', function () {
 
 gulp.task( 'browser-sync', ['styles', 'scripts'], function () {
     browserSync( {
+        open: false,
         server: {
             baseDir: "./",
-            injectChanges: true // this is new
+            injectChanges: true, // this is new
         }
     } );
 } );
