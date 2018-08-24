@@ -16,6 +16,15 @@ var Portfolio = function() {
       _mediaMobile = '600px';
 
   this.init = function() {
+    let defaultTitle = document.title;
+    page('*', function(ctx, next) {
+      let titleArray = ctx.path.split('/');
+      let title = titleArray[titleArray.length - 1] ? 'Drew Rattana | ' + titleCase(titleArray[titleArray.length - 1].replace(/-/g, ' ')) : defaultTitle;
+      document.title = title;
+      ga('set', 'page', ctx.path);
+      ga('send', 'pageview');
+      next();
+    });
     page('/', function() {
       self.aboutClose();
       self.close();
@@ -47,7 +56,7 @@ var Portfolio = function() {
       });
     });
     page({
-      hashbang:true,
+      hashbang: true,
     });
 
     $('#checkout').click(function(event) {
@@ -390,6 +399,12 @@ var Portfolio = function() {
     } else {
       $(el).css({ overflow: prop });
     }
+  }
+
+  function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
   }
 
 };
