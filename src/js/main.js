@@ -23,6 +23,7 @@ var Portfolio = function() {
       document.title = title;
       ga('set', 'page', ctx.path);
       ga('send', 'pageview');
+      gtag('config', 'UA-36735939-1', {'page_path': ctx.path});
       next();
     });
     page('/', function() {
