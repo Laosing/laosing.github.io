@@ -12,16 +12,6 @@
     },
     {
       "timeline": {
-        "description": "Bringing things to life",
-        "type": "animation"
-      },
-      "modal": {
-        "title": "Animations",
-        "description": "<p class='tac'><em>I love animations, I believe bringing life to inanimate concepts and prototypes can be empowering and assist in communicating ideas to others. Here are some samples that I've made over the years.</em></p><hr><h4>Demo Reel</h4><iframe src='https://player.vimeo.com/video/154393424?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Phones</h4><iframe src='https://player.vimeo.com/video/154392285?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Logo 2D to 3D</h4><iframe src='https://player.vimeo.com/video/154393620?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>AE Motion</h4><iframe src='https://player.vimeo.com/video/154393116?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Futuristic Car Interior Concept</h4><iframe src='https://player.vimeo.com/video/154432083?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p>Check out my <a href='http://www.vimeo.com/laosing' target='_blank'>vimeo</a> for more animations!</p>"
-      }
-    },
-    {
-      "timeline": {
         "description": "Coding is fun, coding is magic",
         "type": "web"
       },
@@ -98,6 +88,16 @@
       "modal": {
         "title": "End User Satisfaction Program",
         "description": "<img class='lazy' data-original='/dist/img/enduser/enduser.jpg' /><p class='tac'><em>Service optimization is nearly impossible to perform without an honest and thorough understanding of end user sentiment toward IT services and software.</em> - Info-Tech Research Group</p><h4>Problem</h4><p>During my time at Info-tech Research Group I was tasked to develop a survey which evaluated end user perspectives on company innovation, IT agility, and satisfaction with how technology enables them to do their job. Identify opportunities to improve the reputation of IT, both across the organization and within specific departments.</p><h4>Team</h4><p>The team consisted of myself as the designer and front-end developer, Chris O'Conner as the information researcher, and Taylor Phillips as the backend developer.</p><h4>Product Goal</h4><p>Share end user satisfaction and importance ratings of core IT services, IT communications and business enablement to focus on the right end user groups or lines of business, and ramp up satisfaction and productivity.</p><hr /><h4>Research</h4><p>Having the initial survey questions from Chris and the type of data that needed to be presented in the survey, I started off with many sketches to get ideas and concepts out of my head.</p><img class='lazy' data-original='/dist/img/enduser/end-user-questions.png' /><img class='lazy' data-original='/dist/img/enduser/enduser-sketch.jpg' /><img class='lazy' data-original='/dist/img/enduser/enduser-sketch-2.jpg' /><h4>Wireframes &amp; User Flow </h4><p>After laying out the pages on wireframes we noticed that the it was difficult for the user to know where to start reading. After multiple designs and iterations I came with the solution to guide the user with arrows throughout the sections.</p><img class='lazy' data-original='/dist/img/enduser/end-user-wireframe.png' /><h4>Final Design</h4><p>After finalizing the user flow and making some final decisions with the team, I began on the high-fidelity designs. We had many different mockups and iterations. Everything was placed intentionality with good reasoning and decision making behind it. There were a lot of tradeoffs due to the amount of space that could be placed on a page, but that restriction also helped us condense the information so it was straight to the point.</p><img class='lazy' data-original='/dist/img/enduser/end-user-1.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-2.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-3.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-4.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-5.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-6.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-7.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-8.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-9.jpg' /><img class='lazy' data-original='/dist/img/enduser/end-user-10.jpg' />"
+      }
+    },
+    {
+      "timeline": {
+        "description": "Bringing things to life (2013)",
+        "type": "animation"
+      },
+      "modal": {
+        "title": "Animations",
+        "description": "<p class='tac'><em>I love animations, I believe bringing life to inanimate concepts and prototypes can be empowering and assist in communicating ideas to others. Here are some samples that I've made over the years.</em></p><hr><h4>Demo Reel (2013)</h4><iframe src='https://player.vimeo.com/video/154393424?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Phones (2012)</h4><iframe src='https://player.vimeo.com/video/154392285?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Logo 2D to 3D</h4><iframe src='https://player.vimeo.com/video/154393620?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>AE Motion (2012)</h4><iframe src='https://player.vimeo.com/video/154393116?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><h4>Futuristic Car Interior Concept (2013)</h4><iframe src='https://player.vimeo.com/video/154432083?title=0&byline=0&portrait=0' width='800' height='534' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><p>Check out my <a href='http://www.vimeo.com/laosing' target='_blank'>vimeo</a> for more animations!</p>"
       }
     },
     {
