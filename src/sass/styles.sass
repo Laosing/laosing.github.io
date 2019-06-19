@@ -4,6 +4,10 @@
 $break-mobile: max-width 600px
 $break-tablet: max-width 768px
 
+$sm: 600px
+$md: 768px
+$lg: 992px
+
 /* Imports
    ----------------------------- */
 
@@ -13,6 +17,7 @@ $break-tablet: max-width 768px
 @import "partials/helpers"
 @import "partials/normalize"
 @import "partials/hover"
+@import "partials/utilities"
 
 /* HTML
    ----------------------------- */
@@ -27,7 +32,7 @@ html
 body
   +font-size(16)
   font-family: 'Ubuntu', sans-serif
-  // background: $black
+  min-height: 100%
   position: relative
   background-color: rgb(255, 60, 31)
 
@@ -55,6 +60,7 @@ a, input, button, textarea, select
 
 p
   line-height: 1.5
+  font-weight: 300
 
 hr
   margin: 2em 0
@@ -71,29 +77,6 @@ hr
 .ion-2
   font-size: 2em
   line-height: 1.4
-
-.main-nav
-  display: block
-  text-align: center
-  width: 100%
-  position: absolute
-  bottom: 5em
-  margin: auto
-  +breakpoint($break-mobile)
-    position: initial
-    width: 80%
-    margin-bottom: 2em
-    .button
-      margin-bottom: 1em
-
-.top
-  display: block
-
-.small
-  text-transform: uppercase
-  font-weight: bold
-  +font-size(13)
-  color: $white-dark
 
 .side
   position: absolute
@@ -124,15 +107,13 @@ hr
   top: 0
   bottom: 0
   width: 100%
-  background: $black url('../img/3-dark2.jpg') top center no-repeat
+  // background: $black url('../img/3-dark2.jpg') top center no-repeat
   //+background-size(cover)
+  background: white
   z-index: 20
   transition: transform .3s ease
   box-shadow: 0 0 10px $black-darker
-  overflow: hidden
-  +breakpoint($break-mobile)
-    text-align: center
-    overflow: auto
+  overflow: auto
 
 .work
   position: absolute
@@ -184,40 +165,34 @@ hr
       text-decoration: underline
     @extend .fancy-hover
 
+.main-image
+  width: 100%
+  height: 300px
+  background-image: url('../img/main-banner.jpg')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  pointer-events: none
+  +breakpoint($md)
+    position: fixed
+    // position: absolute
+    top: 0
+    right: 0
+    height: 100vh
+    width: 70%
+    z-index: -1
+
 .intro
-  padding: 3em
-  color: $white
+  padding: 2em
+  color: $black
+  background: white
   width: 100%
   position: relative
-  top: 30%
-  text-align: center
-  transform: translateY(-50%)
-  +breakpoint($break-mobile)
-    transform: none
-    top: auto
-    padding: 1em 3em
-  hr
-    display: block
-    width: 100%
-    max-width: 300px
-    margin: 2em auto
-    opacity: .25
-    border-top: 2px solid white
-    +breakpoint($break-mobile)
-      display: none
-  .adjectives
-    position: relative
-    font-weight: bold
-    text-transform: uppercase
-    letter-spacing: 6px
-    line-height: 100px
-    +font-size(102)
-    text-shadow(0 0 10px $black)
-    +breakpoint($break-mobile)
-      letter-spacing: normal
-      line-height: normal
-      font-size: 3em
-      font-size: 11vw
+  +breakpoint($sm)
+    max-width: 500px
+    padding: 4em
+  +breakpoint($md)
+    height: 100vh
 
 .timeline
   position: relative
@@ -288,7 +263,7 @@ hr
   left: 100%
   right: 0
   top: 5%
-  max-width: 800px
+  max-width: 900px
   background: $white-lighter
   padding: 0
   margin: 0 auto
@@ -412,23 +387,21 @@ hr
     border-radius: 50%
 
 .about-me
-  margin-right: 1em
   background: none
-  border: 1px solid $white
-  color: $white
-  +breakpoint($break-mobile)
-    margin: 0
+  border: 1px solid $black
+  color: $black
 
 .about-me-details
   font-weight: normal
   a
     border-bottom: 1px dotted $primary
-    color: $white
+    color: $black
     // &:hover
     //   color: $primary-lighter
 
 #checkout
-  color: $black-light
+  color: $white
+  background: #000
   +breakpoint($break-mobile)
     width: auto
 
@@ -441,9 +414,6 @@ hr
   +breakpoint($break-mobile)
     display: block
 
-.intro .button
-  margin-top: 20%
-
 .about
   z-index: 30
   display: none
@@ -452,16 +422,15 @@ hr
   top: 0
   bottom: 0
   width: 100%
-  background: $black
-  background: transparentize($black, .05)
+  background: white
   padding: 0
   overflow-y: auto
   +font-size(40)
-  color: $white
-  text-align: center
+  color: $black
+  // text-align: center
   +breakpoint($break-mobile)
     +font-size(30)
-    padding: 20px 20px 0
+    // padding: 20px 20px 0
 
 .about-close
   color: $white
@@ -477,87 +446,51 @@ hr
     background: $primary
 
 .social
-  position: absolute
-  bottom: 1em
-  right: 1em
-  +breakpoint($break-mobile)
-    left: .2em
-    bottom: .2em
-    display: none
-  a
-    +font-size(20)
-    color: $white
-    position: relative
-    background: transparentize($black, .2)
-    display: block
-    padding: 15px 18px
-    margin: .5em .5em 0 0
-    width: 56px
-    text-align: center
-    border: 1px solid transparent
-    border-radius: 50px
-    +breakpoint($break-mobile)
-      margin: .2em .2em 0 0
-    &:hover
-      color: $primary
-      border: 1px solid $primary
+  display: flex
+
+// .made-with-love
+//   +breakpoint($md)
+//     position: absolute
+//     bottom: 5em
 
 .logo
   display: inline-block
   width: 100px
   +breakpoint($break-mobile)
   svg
-    fill: $white
+    fill: $black
   path
     fill: inherit
 
 .about-container
   +font-size(16)
   display: block
-  margin: 4em auto
-  padding: 1em
+  margin: 0
+  padding: 3em
   width: 100%
-  max-width: 600px
-  +breakpoint($break-mobile)
-    margin: 0 auto
-    padding: 0
+  +breakpoint($lg)
+    padding: 4em
+    padding-right: 46%
 
-.about-info
-  text-align: center
-
-.about-picture
-  position: relative
-  display: block
-  margin: 0 auto
-  width: 140px
-  height: 140px
-  background: url('../img/leo.jpg') center center no-repeat
-  border-radius: 100%
-  background-size: contain
-  &:after
-    position: absolute
-    content: ''
-    height: 100%
-    width: 100%
-    top: 0%
-    left: 0%
-    border-radius: 50%
-    z-index: -1
-    box-shadow: 0 0 15px $primary
-    animation: glow-grow 2s ease-out infinite
-  &:before
-    content: ''
-    position: absolute
-    left: 0
-    width: 140px
-    height: 140px
-    background: url('../img/avatar.jpg') center center no-repeat
-    background-size: contain
-    border-radius: 100%
-    opacity: 1
-    transition: opacity 0.3s ease
-  &:hover:before
-    opacity: 0
+.about-image
+  width: 100%
+  height: 30vh
+  background-image: url('../img/about-banner.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center 90%
+  z-index: -1
+  pointer-events: none
+  +breakpoint($sm)
+    height: 50vh
+    background-position: center 82%
+  +breakpoint($lg)
+    position: fixed
+    top: 0
+    right: 0
+    width: 40%
+    height: 100vh
+    background-position: center bottom
 
 @keyframes glow-grow
   0%
@@ -569,23 +502,16 @@ hr
     transform: scale(1.2)
     opacity: 0
 
-.about-name
-  font-weight: normal
-  +font-size(25)
-  margin: .5em 0 1em
-  display: block
-
 .about-details
-  margin-bottom: 1em
   li
-    width: 50%
-    padding: 0 .5em
+    padding: 0
     list-style-type: none
     text-align: left
     margin: 1em 0
     font-weight: normal
-    +breakpoint($break-mobile)
-      width: 100%
+    width: 100%
+    +breakpoint($sm)
+      width: 50%
     &.odd
       float: left
     &.even
@@ -596,27 +522,16 @@ hr
       font-weight: bold
       display: block
       color: $white-darker
-      +font-size(11)
+      letter-spacing: 1px
+      +font-size(12)
     a
-      color: $white
+      color: black
       @extend .fancy-hover
 
 .at:after
   content: '@'
 .dot:after
   content: '.'
-
-.demo-reel
-  position: relative
-  top: 50%
-  display: block
-  text-align: center
-  transform: translateY(-50%)
-  iframe
-    max-width: 810px
-    width: 80%
-    +breakpoint($break-mobile)
-      height: auto
 
 .bg
   position: absolute
@@ -632,39 +547,6 @@ hr
   width: 100%
   background: url(../img/data.gif) 0 0 repeat-x
   opacity: .25
-
-.made-with-love
-  position: absolute
-  bottom: 2em
-  left: 2em
-  color: white
-  opacity: .5
-  font-size: 0.7em
-  text-transform: uppercase
-  +breakpoint($break-mobile)
-    position: initial
-  .ion-heart
-    color: red
-  a
-    color: $white
-    &:hover
-      color: $primary
-
-.typed-cursor
-  opacity: .5
-  animation: blink .7s infinite
-  +font-size(102)
-  +breakpoint($break-mobile)
-    font-size: 3em
-    line-height: normal
-
-@keyframes blink
-  0%
-      opacity: .5
-  50%
-      opacity: 0
-  100%
-      opacity: .5
 
 .tippy-tooltip
   font-size: .9em !important
