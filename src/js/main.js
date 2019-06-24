@@ -21,9 +21,11 @@ var Portfolio = function() {
       let titleArray = ctx.path.split('/');
       let title = titleArray[titleArray.length - 1] ? 'Drew Rattana | ' + titleCase(titleArray[titleArray.length - 1].replace(/-/g, ' ')) : defaultTitle;
       document.title = title;
-      ga('set', 'page', ctx.path);
-      ga('send', 'pageview');
-      gtag('config', 'UA-36735939-1', {'page_path': ctx.path});
+      if(typeof ga === 'function') {
+        ga('set', 'page', ctx.path);
+        ga('send', 'pageview');
+        gtag('config', 'UA-36735939-1', {'page_path': ctx.path});
+      }
       next();
     });
     page('/', function() {
@@ -92,25 +94,27 @@ var Portfolio = function() {
     });
 
     // Tippy.js tooltips
-    const tip = tippy('[title]');
+    if(typeof tippy === 'function') {
+      const tip = tippy('[title]')
 
-    tippy.browser.onUserInputChange = type => {
-      const method = type === 'touch' ? 'disable' : 'enable';
-      for (const tooltip of tip.tooltips) {
-        tooltip[method]();
-      }
-    }
-
-    window.addEventListener('scroll', () => {
-      for (const popper of document.querySelectorAll('.tippy-popper')) {
-        const instance = popper._tippy;
-
-        if (instance.state.visible) {
-          instance.popperInstance.disableEventListeners();
-          instance.hide();
+      tippy.browser.onUserInputChange = type => {
+        const method = type === 'touch' ? 'disable' : 'enable';
+        for (const tooltip of tip.tooltips) {
+          tooltip[method]();
         }
       }
-    });
+
+      window.addEventListener('scroll', () => {
+        for (const popper of document.querySelectorAll('.tippy-popper')) {
+          const instance = popper._tippy;
+
+          if (instance.state.visible) {
+            instance.popperInstance.disableEventListeners();
+            instance.hide();
+          }
+        }
+      });
+    }
 
     // Scroll to top button
     $('.backtotop').on('click', function(event) {
@@ -125,6 +129,7 @@ var Portfolio = function() {
     });
   }
 
+  // Open work sidebar
   this.open = function(cb) {
     if(!self.checkMobile()) _bg.show();
 
@@ -137,7 +142,7 @@ var Portfolio = function() {
     _helper.addClass('helper-active');
     _main.velocity({
       'scale': 1,
-      left: this.checkMobile() ? '-100%' : '-30%'
+      translateX: this.checkMobile() ? '-100%' : '-30%'
     }, 'normal', 'ease', function() {
       _close.velocity('fadeIn', 'fast');
 
@@ -169,7 +174,7 @@ var Portfolio = function() {
 
     _work.velocity('fadeOut', 'normal', function() {
       _main.velocity({
-        left: ''
+        translateX: ''
       }, 'normal', 'ease', function() {
         _workContainer.find('li.active')
           .removeClass('active')
@@ -246,14 +251,16 @@ var Portfolio = function() {
 
   this.setHtml = function() {
     $.getJSON('./data/portfolio.json')
-      .fail(function() { alert("Sorry, this site is currently down. Please blame the developer and try again later. :("); })
+      .fail(function() { alert("Sorry, this site is currently down. Please come back again later. :("); })
       .done(function(data) {
+        data.work = data.work.filter(item => item.timeline.type !== 'industrial')
         self.json = data;
 
         // Change input to hyphen-case
         Handlebars.registerHelper('hyphencase', function(title) {
           return title.replace(/\W+/g, '-').toLowerCase();
         });
+
 
         var workSource = $('#work-template').html(),
             workTemplate = Handlebars.compile(workSource);
@@ -378,9 +385,15 @@ var Portfolio = function() {
       if (direction === 'prev') {
         el.velocity({
           left: '-200%',
-        }, 0);
+        }, 0, function() {
+          animateEl()
+        });
+      } else {
+        animateEl()
       }
+    }
 
+    function animateEl() {
       el
         .show()
         .velocity({
