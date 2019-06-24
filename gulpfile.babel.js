@@ -6,6 +6,8 @@ import cleanCSS from 'gulp-clean-css';
 import del from 'del';
 import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
+import browserSync from 'browser-sync';
+const server = browserSync.create();
 
 const paths = {
   styles: {
@@ -47,12 +49,29 @@ export function scripts() {
   * You could even use `export as` to rename exported tasks
   */
 function watchFiles() {
-  gulp.watch(paths.scripts.src, scripts);
-  gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
+  gulp.watch(paths.styles.src, gulp.series(styles, reload));
 }
-export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts));
+const dev = gulp.series(serve, watchFiles);
+export { dev as watch };
+
+function reload(done) {
+  server.reload();
+  done();
+}
+
+function serve(done) {
+  server.init({
+    server: {
+      baseDir: './'
+    }
+  });
+  done();
+}
+
+
+const build = gulp.series(clean, serve, gulp.parallel(styles, scripts));
 /*
  * Export a default task
  */
