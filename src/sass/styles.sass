@@ -68,6 +68,16 @@ hr
   border: none
   background: #404040
 
+pre
+  background-color: #eaecef
+  border-radius: 3px
+  font-size: 85%
+  line-height: 1.45
+  overflow: auto
+  padding: 16px
+  margin: 16px 32px
+
+
 /* Styles
    ----------------------------- */
 
@@ -164,18 +174,44 @@ hr
     &:hover
       text-decoration: underline
     @extend .fancy-hover
+  h5
+    margin: 0 32px 8px
+
+.main-image-container
+  position: relative
+  height: 300px
+  pointer-events: none
+  +breakpoint($md)
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+.main-image-me
+  position: absolute
+  top: 0
+  left: 35%
+  content: ''
+  width: 100%
+  height: 100%
+  background: url('../img/banner-me.png')
+  background-position: center bottom
+  background-repeat: no-repeat
+  background-size: contain
+  pointer-events: none
 
 .main-image
   width: 100%
   height: 300px
-  background-image: url('../img/banner.jpg')
+  position: absolute
+  background-image: url('../img/banner-bg.jpg')
   background-position: center
   background-repeat: no-repeat
   background-size: cover
   pointer-events: none
+  overflow: hidden
   +breakpoint($md)
-    position: fixed
-    // position: absolute
+    position: absolute
     top: 0
     right: 0
     height: 100vh
@@ -192,6 +228,7 @@ hr
   +breakpoint($sm)
     max-width: 500px
     padding: 4em
+    padding-bottom: 1em
   +breakpoint($md)
     height: 100vh
 
@@ -249,10 +286,10 @@ hr
 .desc
   margin: 1em 1em 0
   color: $white
-  +font-size(13)
+  +font-size(12)
   font-style: italic
   line-height: 1.5em
-  color: $white-dark
+  color: #777
 
 .lt-ie9 .work-container
   overflow-y: scroll

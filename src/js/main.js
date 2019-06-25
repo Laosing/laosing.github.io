@@ -141,6 +141,7 @@ var Portfolio = function() {
     _body.addClass('open-work');
     _helper.addClass('helper-active');
     _main.velocity({
+
       'scale': 1,
       translateX: this.checkMobile() ? '-100%' : '-30%'
     }, 'normal', 'ease', function() {
@@ -197,7 +198,10 @@ var Portfolio = function() {
 
     if(this.checkMobile()) {
       _about
-        .velocity({ 'scale': 1 }, 0)
+        .velocity({
+          'scale': 1,
+
+        }, 0)
         .velocity('fadeIn', function() {
           setOverflow(false, $(this));
         });
@@ -206,7 +210,7 @@ var Portfolio = function() {
 
     _side.velocity({ opacity: 1 }, { display: 'none', duration: 0 });
 
-    _main.velocity({ scale: .9 }, function() {
+    _main.velocity({ scale: .9,  }, function() {
       _about.show().velocity({
         opacity: 1,
       }, 'linear', function() {
@@ -377,6 +381,8 @@ var Portfolio = function() {
       animateIn();
     }
 
+    self.enableVideos(el)
+
     function animateIn() {
       el.addClass('active');
       timelineEl.addClass('active');
@@ -402,6 +408,14 @@ var Portfolio = function() {
           if (setURL) page(`/work/${el.data('work-title')}`);
         });
     }
+  }
+
+  this.enableVideos = function($work) {
+    $work.find('.vimeo-video').each(function(index, el) {
+      let frame = `<iframe src='${$(el).data('src')}' height='${$(el).data('height')}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
+      $(el).append(frame);
+    });
+
   }
 
   function setOverflow(prop, el) {
