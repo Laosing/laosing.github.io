@@ -2,12 +2,22 @@
   "work": [
     {
       "timeline": {
-        "description": "An illustrated cat collection for cat lovers.",
+        "description": "An illustrated cat collection for cat lovers (2019)",
         "type": "web"
       },
       "modal": {
         "title": "Cute Cat Avatars",
         "description": "<img class='lazy' data-original='/dist/img/cute_cat_avatars/banner.png' /><p class='tac'><em>An illustrated cat collection for cat lovers. <br><a href='https://github.com/Laosing/cute-cat-avatars' target='_blank'>Check out the project</a></em><hr /><h4>What is this?</h4><p>Cute Cat Avatars are colorful cats illustrated by me that can be used as profile picture placeholders for live websites or design mock ups. Made in SVG format for a crisp image with super fast load times on every device.</p><img class='lazy' data-original='/dist/img/cute_cat_avatars/what-is-this.png' /><h4>How to use</h4><p>You can easily use these cats in img tags or http requests, the response will be a cat in Content-Type: image/svg+xml. The url to request is https://cute-cat-avatars.herokuapp.com/api/v1/:seed for example:</p><h5>HTML</h5><pre><code>&lt;img src='https://cute-cat-avatars.herokuapp.com/api/v1/announcer' alt='Cute announcer cat'&gt;</code></pre><h5>JavaScript</h5><pre><code>fetch('https://cute-cat-avatars.herokuapp.com/api/v1/random').then(function(response) {document.getElementById('cat').src = response.url;})</code></pre><img class='lazy' data-original='/dist/img/cute_cat_avatars/pick-a-cat.png' />"
+      }
+    },
+    {
+      "timeline": {
+        "description": "Cloud-based school management software (2018)",
+        "type": "web"
+      },
+      "modal": {
+        "title": "Ayotree",
+        "description": "<img class='lazy' data-original='/dist/img/ayotree/logo.png' /><p class='tac'><em>Ayotree's cloud-based school management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms.<br><br>Role: <b>Lead Front-end Developer</b><br><br><a href='https://www.ayotree.com' target='_blank'>Check out the project</a></em></p><hr /><h4>User flow</h4><p>A userflow wireframe was created to illustrate the flow of pages, their content and how they link together.</p><img class='lazy' data-original='/dist/img/ayotree/work-flow.png' /><h4>Branding</h4><p>The branding portrays an educational system that is caring and welcoming but clean and easy to understand.</p><img class='lazy' data-original='/dist/img/ayotree/color-guide.png' /><h4>Final Design</h4><p>The Ayotree consumer facing website was designed to showcase it's online software suite that combines all the tools needed to run a successful online school.</p><img class='lazy' data-original='/dist/img/ayotree/render.png' />"
       }
     },
     {
