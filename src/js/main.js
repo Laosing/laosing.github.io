@@ -413,9 +413,8 @@ var Portfolio = function() {
   this.enableVideos = function($work) {
     $work.find('.vimeo-video').each(function(index, el) {
       let frame = `<iframe src='${$(el).data('src')}' height='${$(el).data('height')}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
-      $(el).append(frame);
+      $(el).removeClass('vimeo-video').append(frame);
     });
-
   }
 
   function setOverflow(prop, el) {
