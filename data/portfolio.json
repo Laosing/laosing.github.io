@@ -2,6 +2,26 @@
   "work": [
     {
       "timeline": {
+        "description": "Real-time web game using websockets (2022)",
+        "type": "web"
+      },
+      "modal": {
+        "title": "Bombparty clone",
+        "description": "<img class='lazy' data-original='/dist/img/bombparty/homepage.jpg' /><p class='tac'><em>Real-time web game using websockets.<br>Check out the <a href='https://bombparty-clone.fly.dev/' target='_blank'>website</a></em><hr /><h4>What is this?</h4><p>Inspired by BombParty on JKLM. From a simple request from my significant other to make the game show the bomb timer came an incredibly fun journey into learning websockets.</p><img class='lazy' data-original='/dist/img/bombparty/lobby.jpg' /><p>It all started with a simple timer counting down and it has now turned into a complete game that has features not even in the original version. Feature and stability credits go to my colleges at Fuze who helped play test and came up with multiple ideas that helped make the game more interesting.</p><p>The game was created using node.js, express and socket.io; It features private rooms, chat, a scoreboard, hardmode, bonus heart/letter rewards, random name and avatar generators. The dictionaries used are sowpods, enable1 and additions such as countries, months and days of the week. There's also a hidden feature that allows you to become an \"admin\" where you can kick other players (clicking on the 🤯).</p><p>Give the game a try! I hope you enjoy it as much as I enjoyed building it.</p><img class='lazy' data-original='/dist/img/bombparty/game-active.jpg' /><img class='lazy' data-original='/dist/img/bombparty/winner.jpg' /><img class='lazy' data-original='/dist/img/bombparty/darkmode.jpg' />"
+      }
+    },
+    {
+      "timeline": {
+        "description": "Electron.js app to manage docker stacks (2021)",
+        "type": "web"
+      },
+      "modal": {
+        "title": "Sloth stack",
+        "description": "<img class='lazy' data-original='/dist/img/sloth-stack/banner.jpg' /><p class='tac'><em>An Electron based desktop application to manage docker stacks.</em><hr /><h4>What is this?</h4><p>For the 2-day 2021 Fuze hackathon, my team and I decided to create a desktop application to manage docker stacks. The tech stack was Electron.js with React for the frontend communicating to the Java backend through REST APIs.</p><img class='lazy' data-original='/dist/img/sloth-stack/architecture.jpg' /><h4>The Problem</h4><p>Docker stacks are hard, with lengthy configuration files that become more difficult to manage each time a new stack is added. In order to make it more manageable our idea was to have a small desktop application that can automatically manage your docker stack without the need for touching the command line and managing multiple docker cli tabs. This included toggling on/off, checking the state and being able to add/delete stacks.</p><img class='lazy' data-original='/dist/img/sloth-stack/application.jpg' /><img class='lazy' data-original='/dist/img/sloth-stack/gif.gif' />"
+      }
+    },
+    {
+      "timeline": {
         "description": "An illustrated cat collection for cat lovers (2019)",
         "type": "web"
       },
